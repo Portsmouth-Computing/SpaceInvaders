@@ -1,6 +1,7 @@
 from game_object import *
 
 class Boulder(GameObject):
+    '''One of the boulders/ sheilds in the game to protect the player'''
     def __init__(self, win, x):
         self._w = 60
         self._h = 20

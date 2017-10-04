@@ -4,6 +4,7 @@ from projectile import *
 from clock import *
 
 class World:
+    '''The world'''
     def __init__(self, win):
         self.player = Player(win)
         self.boulders = [] 

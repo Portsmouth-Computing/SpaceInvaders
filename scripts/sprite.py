@@ -1,6 +1,7 @@
 import graphics as gfx
 
 class Sprite:
+    '''2D rectangle sprite'''
     def __init__(self, position, size, win):
         self.size     = size
         self.rect = gfx.Rectangle(position, gfx.Point(position.x + size.x, position.y + size.y))
