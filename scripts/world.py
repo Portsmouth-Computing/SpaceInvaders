@@ -43,4 +43,5 @@ class World:
                     print ("wrk")
                     p.alive = False
                     p.sprite.stop_draw()
+                    b.hit(win)
 

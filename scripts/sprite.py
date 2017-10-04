@@ -15,8 +15,8 @@ class Sprite:
     def set_size(self, x, y):
         self.rect.width = x
         self.rect.height = y
-        size.x = x 
-        size.y = y
+        self.size.x = x 
+        self.size.y = y
 
     def get_width(self):
         return self.size.x
