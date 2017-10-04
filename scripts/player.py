@@ -10,9 +10,7 @@ class Player(GameObject):
                             25, 30)
         self.velocity = 0.0
 
-    def update(self, win, dt):
-        key = win.checkKey()
-
+    def update(self, win, dt, key):
         if (key == "a"):
             self.velocity -= 5.0
         elif (key == "d"):

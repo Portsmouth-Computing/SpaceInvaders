@@ -1,6 +1,4 @@
 import graphics as gfx
-from timeit import default_timer as timer
-
 from clock import *
 from world import *
 
@@ -15,10 +13,11 @@ class Game:
         '''runs the game'''
         clock = Clock()
         while not self.win.closed:
+            key = self.win.checkKey()
             delta = clock.getElapsed()  
             clock.restart()
 
-            self.world.update(self.win, delta)
+            self.world.update(self.win, delta, key)
 
             gfx.update(30)
 

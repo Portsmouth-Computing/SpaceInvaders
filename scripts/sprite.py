@@ -2,7 +2,6 @@ import graphics as gfx
 
 class Sprite:
     def __init__(self, position, size, win):
-        self.position = position
         self.size     = size
         self.rect = gfx.Rectangle(position, gfx.Point(position.x + size.x, position.y + size.y))
         self.rect.setFill("white")
@@ -15,12 +14,14 @@ class Sprite:
     def set_size(self, x, y):
         self.rect.width = x
         self.rect.height = y
+        size.x = x 
+        size.y = y
 
     def get_width(self):
-        return self.rect.width
+        return self.size.x
 
     def get_height(self):
-        return self.rect.height
+        return self.size.y
 
     def get_pos_x(self):
         return self.rect.p1.x
