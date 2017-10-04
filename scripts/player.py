@@ -1,11 +1,11 @@
 import graphics as gfx
 from sprite import * 
+from game_object import *
 
-class Player:
+class Player(GameObject):
     '''the player of the game'''
     def __init__(self, win):
-        self.sprite = Sprite(gfx.Point(win.width / 2, win.height - 50), gfx.Point(24, 36), win)
-
+        GameObject.__init__(self, win)
         self.velocity = 0.0
 
     def update(self, win, dt):
