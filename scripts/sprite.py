@@ -9,9 +9,9 @@ class Sprite:
         self.rect.setOutline("white")
         self.rect.draw(win)
 
-    def move(x, y):
+    def move(self, x, y):
         self.rect.move(x, y)
 
-    def stop_draw():
+    def stop_draw(self):
         self.rect.undraw()
     

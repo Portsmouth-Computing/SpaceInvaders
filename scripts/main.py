@@ -9,9 +9,7 @@ class Game:
     def __init__(self):
         self.win = gfx.GraphWin("Space Invaders", 800, 600, autoflush = False)
         self.win.setBackground("black")
-
         self.world = World(self.win)
-        print ("Created game")
 
     def runGame(self):
         '''runs the game'''
@@ -19,6 +17,9 @@ class Game:
         while not self.win.closed:
             delta = clock.getElapsed()  
             clock.restart()
+
+            self.world.update(self.win, delta)
+
             gfx.update(30)
 
 def main():
