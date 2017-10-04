@@ -8,4 +8,12 @@ class GameObject:
         self.is_alive = True
 
     def is_colliding(self, obj):
-        return False
+        s1 = self.sprite
+        s2 = obj.sprite 
+
+        b1 = s1.get_pos_x()                     < s2.get_pos_x() + s2.get_width()
+        b2 = s1.get_pos_x() + s1.get_width()    > s2.get_pos_x()
+        b3 = s1.get_pos_y()                     < s2.get_pos_y() + s2.get_height()
+        b4 = s1.get_pos_y() + s1.get_height()   > s2.get_pos_y()
+
+        return b1 and b2 and b3 and b4
