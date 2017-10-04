@@ -5,7 +5,9 @@ from game_object import *
 class Player(GameObject):
     '''the player of the game'''
     def __init__(self, win):
-        GameObject.__init__(self, win)
+        GameObject.__init__(self,   win,
+                            win.width / 2, win.height - 50, 
+                            25, 30)
         self.velocity = 0.0
 
     def update(self, win, dt):

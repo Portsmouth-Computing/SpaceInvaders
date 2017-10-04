@@ -3,6 +3,9 @@ from sprite import *
 
 class GameObject:
     '''the player of the game'''
-    def __init__(self, win):
-        self.sprite = Sprite(gfx.Point(win.width / 2, win.height - 50), gfx.Point(24, 36), win)
+    def __init__(self, win, x, y, w, h):
+        self.sprite = Sprite(gfx.Point(x, y), gfx.Point(w, h), win)
         self.is_alive = True
+
+    def is_colliding(self, obj):
+        return False
