@@ -11,6 +11,10 @@ class Projectile(GameObject):
 
     def update(self):
         '''Updates the projectile position, and says it ded when it goes off-screen'''
+        self.b_update()
+
         self.sprite.move(0, -10)
-        if (self.sprite.get_pos_y() >= 0):
-            self.alive = False
+        if (self.sprite.get_pos_y() <= 0):
+            self.is_alive = False
+
+        print (self.is_alive)

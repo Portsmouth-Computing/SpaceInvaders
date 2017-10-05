@@ -21,6 +21,7 @@ class World:
         self.projectiles.append(Projectile(win, x, y))
 
     def try_input(self, key, win):
+        '''gets input duh'''
         if (self.inputClock.getElapsed() > 0.5):
             if (key == "w"):
                 self.add_projectile(win)
@@ -29,19 +30,16 @@ class World:
     def update(self, win, dt, key):
         self.try_input(key, win)
 
+        print(len(self.projectiles))
 
         self.player.update(win, dt, key)
 
         for projectile in self.projectiles:
             projectile.update()
-        self.projectiles = [p for p in self.projectiles if not p.alive]
 
-
+        #collision between player projectiles and boulders
         for p in self.projectiles:
             for b in self.boulders:
                 if (p.is_colliding(b)):
-                    print ("wrk")
-                    p.alive = False
-                    p.sprite.stop_draw()
+                    p.is_alive = False
                     b.hit(win)
-

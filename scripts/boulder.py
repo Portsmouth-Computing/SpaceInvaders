@@ -12,10 +12,8 @@ class Boulder(GameObject):
         self.health = 10
 
     def hit(self, win):
+        self.b_update()
         self.health -= 1
-        print(self.health)
         self.sprite.set_size(self._w, self.health * 2)
         if (self.health == 0):
-            self.alive = False
-            sprite.un_draw()
-            sprite.rect.draw(win)
+            self.is_alive = False

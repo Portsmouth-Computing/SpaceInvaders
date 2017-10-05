@@ -17,3 +17,7 @@ class GameObject:
         b4 = s1.get_pos_y() + s1.get_height()   > s2.get_pos_y()
 
         return b1 and b2 and b3 and b4
+
+    def b_update(self):
+        if not self.is_alive:
+            self.sprite.stop_draw()
