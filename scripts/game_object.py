@@ -18,6 +18,10 @@ class GameObject:
 
         return b1 and b2 and b3 and b4
 
-    def b_update(self):
+    def update(self):
+        self._update()
         if not self.is_alive:
             self.sprite.stop_draw()
+
+    def _update(self):
+        pass

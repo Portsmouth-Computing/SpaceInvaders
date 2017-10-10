@@ -30,16 +30,17 @@ class World:
     def update(self, win, dt, key):
         self.try_input(key, win)
 
-        print(len(self.projectiles))
-
         self.player.update(win, dt, key)
 
-        for projectile in self.projectiles:
-            projectile.update()
+        for p in self.projectiles:
+            p.update()
+
+        for b in self.boulders:
+            b.update()
 
         #collision between player projectiles and boulders
         for p in self.projectiles:
             for b in self.boulders:
-                if (p.is_colliding(b)):
+                if (p.is_colliding(b) and b.is_alive):
                     p.is_alive = False
                     b.hit(win)

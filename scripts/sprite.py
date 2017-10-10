@@ -12,11 +12,15 @@ class Sprite:
     def move(self, x, y):
         self.rect.move(x, y)
 
+    '''
     def set_size(self, x, y):
-        self.rect.width = x
-        self.rect.height = y
+        self.rect.p2.x = self.rect.p2.x - x
+        self.rect.p2.y = self.rect.p2.y - y
         self.size.x = x 
         self.size.y = y
+        self.rect.move(0, 0)
+        print("Changing size")
+    '''
 
     def get_width(self):
         return self.size.x
