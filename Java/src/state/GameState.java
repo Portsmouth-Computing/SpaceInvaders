@@ -5,10 +5,28 @@
  */
 package state;
 
+import java.awt.event.KeyEvent;
+import main.Game;
+
 /**
  *
  * @author mhops
  */
-public class GameState {
+public abstract class GameState 
+{
+    private Game game;
     
+   public  GameState(Game game) 
+   {
+       this.game = game;
+   }
+  
+   public abstract void handleInput(KeyEvent e);
+   public abstract void update();
+   public abstract void draw();
+   
+   protected Game getGame()
+   {
+       return game;
+   }
 }
