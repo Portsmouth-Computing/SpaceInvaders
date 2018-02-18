@@ -20,11 +20,13 @@ public class Invaders
     
     private final int ROWS = 5;
     private final int COLUMNS = 11;
+    private final int MAX_INVADERS = ROWS * COLUMNS;
     
-    private int leftPosition;
-    private int rightPosition;
-    private final int minLeft;
-    private final int maxRight;
+    private int aliveInvaders = MAX_INVADERS;
+    private double leftPosition;
+    private double rightPosition;
+    private final double minLeft;
+    private final double maxRight;
     
     private Direction invaderDirection;
     private ArrayList<Invader> invaders;
@@ -60,10 +62,10 @@ public class Invaders
      */
     public void move()
     {
-        double move = 1;
-        double x = invaderDirection == Direction.LEFT ? -move : move;
-        leftPosition += x;
-        rightPosition += x;
+        double speed = calculateSpeed();
+        //Change bound positions
+        leftPosition  += speed;
+        rightPosition += speed;
         
         //If the invaders reach the edge of left/right of window
         //make them move the other way
@@ -78,7 +80,7 @@ public class Invaders
         }
         
         for (Invader invader : invaders) {
-            invader.move(x);
+            invader.move(speed);
             if (moveDown) {
                 invader.moveDown();
             }
@@ -125,5 +127,20 @@ public class Invaders
                 }
             }
         }
+    }
+    
+    /**
+     * Calculates the speed the invaders should move based on the number that
+     * are still alive
+     * @return Speed to move
+     */
+    private double calculateSpeed()
+    {
+        //Calculate the speed to move
+        double speedFactor = 1.0 / aliveInvaders;
+        double s = ((double)MAX_INVADERS / 4.0) * speedFactor;
+        s = Math.max(s, 2.0);
+        
+        return invaderDirection == Direction.LEFT ? -s : s;
     }
 }
