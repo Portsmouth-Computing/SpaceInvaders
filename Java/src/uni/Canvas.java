@@ -2,6 +2,7 @@ package uni;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.awt.geom.*;
 
 /**
@@ -61,6 +62,11 @@ public class Canvas
         backgroundColor = bgColor;
         frame.pack();
         setVisible(true);
+    }
+    
+    public void addKeyListener(KeyListener listener) 
+    {
+        frame.addKeyListener(listener);
     }
 
     /**
