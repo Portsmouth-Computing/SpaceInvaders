@@ -89,7 +89,8 @@ public class Invaders
     }
     
     /**
-     * @TODO implement
+     * Tries to fire a projectile from a low-space invader. ~1/75 chance
+     * @return The projectile fired
      */
     public Projectile tryShoot() 
     {
@@ -112,6 +113,11 @@ public class Invaders
         }
     }
     
+    /**
+     * Brute-force test for collision between a projectile and the invaders
+     * @param projectile The projectile to test collisions against
+     * @return Whether or not there was a collision
+     */
     public boolean invaderCollidesWithProjectile(Projectile projectile) 
     {
         for (Invader invader : invaders) {

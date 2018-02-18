@@ -55,6 +55,10 @@ public class Invader
         return isAlive;
     }
     
+    /**
+     * Gets the bounding box of this invader
+     * @return Bounding box of this invader
+     */
     public BoundingBox getBox()
     {
         return box;
@@ -69,6 +73,9 @@ public class Invader
         return new Vector2D(box.getX(), box.getY());
     }
     
+    /**
+     * Kills the invader, so it doesn't draw anymore etc
+     */
     public void kill()
     {
         isAlive = false;

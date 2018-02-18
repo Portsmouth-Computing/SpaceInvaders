@@ -109,7 +109,7 @@ public class PlayingState extends GameState
             Projectile proj = (Projectile)itr.next();
             proj.update();
             
-            if (proj.isTargettingPlayer()) {
+            if (proj.isTargetingPlayer()) {
                 
             } else {
                 if (invaders.invaderCollidesWithProjectile(proj)) {
