@@ -90,11 +90,13 @@ public class Invaders
     /**
      * @TODO implement
      */
-    public void tryShoot() 
+    public Projectile tryShoot() 
     {
         if (random.nextInt(75) < 1) {
             Vector2D shootPoint = getRandomLowestInvaderPosition();
+            return new Projectile(shootPoint, 2);
         }
+        return null;
     }
     
     /**

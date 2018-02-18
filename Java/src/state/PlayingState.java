@@ -4,8 +4,11 @@ import world.Invaders;
 import world.Player;
 import world.Vector2D;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.Iterator;
 import main.Game;
 import uni.Canvas;
+import world.Projectile;
 
 /**
  * State for playing the game
@@ -13,12 +16,15 @@ import uni.Canvas;
  */
 public class PlayingState extends GameState 
 {
+    private ArrayList<Projectile> worldProjectiles;
+    
     private Player player;
     private Invaders invaders;
     
     public PlayingState(Game game) 
     {
         super(game);
+        worldProjectiles = new ArrayList<>();
         player = new Player();
         invaders = new Invaders();
     }
@@ -58,7 +64,12 @@ public class PlayingState extends GameState
     {
         player.update();
         invaders.move();
-        invaders.tryShoot();
+        Projectile newProjectile = invaders.tryShoot();
+        if (newProjectile != null) {
+            worldProjectiles.add(newProjectile);
+        }
+        
+        updateProjectiles();
     }
 
     /**
@@ -70,5 +81,18 @@ public class PlayingState extends GameState
     {
         player.draw(canvas);
         invaders.draw(canvas);
+        for(Projectile proj : worldProjectiles) {
+            proj.draw(canvas);
+        }
+    }
+    
+    private void updateProjectiles()
+    {
+        Iterator itr = worldProjectiles.iterator();
+        while(itr.hasNext()) {
+            Projectile proj = (Projectile)itr.next();
+            proj.update();
+            
+        }
     }
 }
