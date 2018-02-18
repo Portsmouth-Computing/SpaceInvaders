@@ -102,7 +102,7 @@ public class PlayingState extends GameState
             Projectile proj = (Projectile)itr.next();
             proj.update();
             
-            if (proj.getTarget() == Projectile.Target.INVADER) {
+            if (proj.isTargettingPlayer()) {
                 
             } else {
                 

@@ -10,21 +10,12 @@ import uni.Canvas;
  */
 public class Projectile 
 {
-    /**
-     * What entity the projectile will be hitting
-     */
-    public enum Target
-    {
-        PLAYER,
-        INVADER
-    }
-    
     public static final int HEIGHT = 20;
     public static final int WIDTH  = 3;
     private Vector2D position;
     private double ySpeed;
     private boolean shouldRemove;
-    private Target target;
+    private boolean targetingPlayer;
     
     public Projectile(Vector2D position, double ySpeed)
     {
@@ -33,7 +24,7 @@ public class Projectile
         this.shouldRemove = false;
         
         //If it moves down, target player, else target enemy
-        target = ySpeed > 0 ? Target.PLAYER : Target.INVADER;
+        targetingPlayer = ySpeed > 0;
     }
     
     public void update()
@@ -49,9 +40,9 @@ public class Projectile
         canvas.fillRectangle(position.x, position.y, WIDTH, HEIGHT);
     }
     
-    public Target getTarget()
+    public boolean isTargettingPlayer()
     {
-        return target;
+        return targetingPlayer;
     }
     
     public Boolean shouldBeRemoved()
