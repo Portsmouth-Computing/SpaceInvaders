@@ -159,8 +159,6 @@ public class Invaders
         double s = ((double)MAX_INVADERS / 4.0) * speedFactor;
         s = Math.max(s, 1.5);
         
-        System.out.println(speedFactor);
-        
         return invaderDirection == Direction.LEFT ? -s : s;
     }
 }

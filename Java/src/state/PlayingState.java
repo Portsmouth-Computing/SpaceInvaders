@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import main.Game;
 import uni.Canvas;
+import util.Timer;
 import world.Projectile;
 
 /**
@@ -21,6 +22,7 @@ public class PlayingState extends GameState
     
     private Player player;
     private Invaders invaders;
+    private Timer shootTimer;
     
     public PlayingState(Game game) 
     {
@@ -28,6 +30,7 @@ public class PlayingState extends GameState
         worldProjectiles = new ArrayList<>();
         player = new Player();
         invaders = new Invaders();
+        shootTimer = new Timer();
     }
     
     /**
@@ -52,9 +55,13 @@ public class PlayingState extends GameState
     @Override
     public void handleKeyUp(int key) 
     {
-       if (key == KeyEvent.VK_SPACE) {
-           worldProjectiles.add(new Projectile(player.getPosition(), -5));
-       }
+       System.out.println(shootTimer.getTimeAsSeconds() );
+        if (shootTimer.getTimeAsSeconds() >= 0.5) {
+             if (key == KeyEvent.VK_SPACE) {
+                 worldProjectiles.add(new Projectile(player.getPosition(), -5));
+             }
+             shootTimer.reset();
+        }
     }
 
     /**

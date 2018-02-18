@@ -10,8 +10,8 @@ import uni.Canvas;
  */
 public class Projectile 
 {
-    public static final int HEIGHT = 20;
-    public static final int WIDTH  = 3;
+    public static final int HEIGHT = 8;
+    public static final int WIDTH  = 5;
     private double ySpeed;
     private boolean shouldRemove;
     private boolean targetingPlayer;
