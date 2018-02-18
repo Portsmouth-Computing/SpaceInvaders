@@ -12,14 +12,15 @@ public class Projectile
 {
     public static final int HEIGHT = 20;
     public static final int WIDTH  = 3;
-    private Vector2D position;
     private double ySpeed;
     private boolean shouldRemove;
     private boolean targetingPlayer;
     
+    private BoundingBox box;
+    
     public Projectile(Vector2D position, double ySpeed)
     {
-        this.position = position;
+        box = new BoundingBox(WIDTH, HEIGHT, position.x, position.y);
         this.ySpeed = ySpeed;
         this.shouldRemove = false;
         
@@ -29,15 +30,15 @@ public class Projectile
     
     public void update()
     {
-        position.y += ySpeed;
-        if (position.y > Game.HEIGHT || position.y < 0) {
+        box.updatePosition(box.getX(), box.getY() + ySpeed);
+        if (box.getY() > Game.HEIGHT || box.getY() < 0) {
             shouldRemove = true;
         }
     }
     
     public void draw(Canvas canvas)
     {
-        canvas.fillRectangle(position.x, position.y, WIDTH, HEIGHT);
+        canvas.fillRectangle(box.getX(), box.getY(), WIDTH, HEIGHT);
     }
     
     public boolean isTargettingPlayer()
@@ -50,8 +51,8 @@ public class Projectile
         return shouldRemove;
     }
     
-    public Vector2D getPosition() 
+    public BoundingBox getBox()
     {
-        return position;
+        return box;
     }
 }

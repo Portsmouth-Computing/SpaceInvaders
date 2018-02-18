@@ -11,11 +11,11 @@ public class Invader
     public static final int SIZE = 22;
     public boolean isAlive = true;
     
-    private Vector2D position;
+    private BoundingBox box;
     
-    public Invader(Vector2D initialPosition)
+    public Invader(Vector2D position)
     {
-        position = initialPosition;
+        box = new BoundingBox(SIZE, SIZE, position.x, position.y);
     }
     
     /**
@@ -25,7 +25,7 @@ public class Invader
     public void draw(Canvas canvas)
     {
         if (isAlive) {
-            canvas.fillRectangle(position.x, position.y, SIZE, SIZE);
+            canvas.fillRectangle(box.getX(), box.getY(), SIZE, SIZE);
         }
     }
     
@@ -35,7 +35,7 @@ public class Invader
      */
     public void move(double xOffset)
     {
-        position.x += xOffset;
+        box.updatePosition(box.getX() + xOffset, box.getY());
     }
     
     /**
@@ -43,7 +43,7 @@ public class Invader
      */
     public void moveDown()
     {
-        position.y += SIZE / 2;
+        box.updatePosition(box.getX(), box.getY() + SIZE / 2);
     }
     
     /**
@@ -55,12 +55,22 @@ public class Invader
         return isAlive;
     }
     
+    public BoundingBox getBox()
+    {
+        return box;
+    }
+    
     /**
      * Gets the position of the invader in screen/pixel coordinates
      * @return Position of invader
      */
     public Vector2D getPosition()
     {
-        return position;
+        return new Vector2D(box.getX(), box.getY());
+    }
+    
+    public void kill()
+    {
+        isAlive = false;
     }
 }

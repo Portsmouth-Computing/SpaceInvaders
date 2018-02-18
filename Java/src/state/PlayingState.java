@@ -53,7 +53,7 @@ public class PlayingState extends GameState
     public void handleKeyUp(int key) 
     {
        if (key == KeyEvent.VK_SPACE) {
-           //Shoot
+           worldProjectiles.add(new Projectile(player.getPosition(), -5));
        }
     }
 
@@ -93,7 +93,7 @@ public class PlayingState extends GameState
      * Updates the projectiles by:
      * -Removing destroyed ones
      * -Moving them
-     * -Testing for collision with player
+     * -Testing for collision with entities
      */
     private void updateProjectiles()
     {
@@ -105,7 +105,10 @@ public class PlayingState extends GameState
             if (proj.isTargettingPlayer()) {
                 
             } else {
-                
+                if (invaders.invaderCollidesWithProjectile(proj)) {
+                    itr.remove();
+                    continue;
+                }
             }
             
             if (proj.shouldBeRemoved()) {

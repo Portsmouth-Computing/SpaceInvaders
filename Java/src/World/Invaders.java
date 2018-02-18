@@ -2,6 +2,7 @@ package world;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 import main.Game;
 import uni.Canvas;
@@ -94,7 +95,7 @@ public class Invaders
     {
         if (random.nextInt(75) < 1) {
             Vector2D shootPoint = getRandomLowestInvaderPosition();
-            return new Projectile(shootPoint, 2);
+            return new Projectile(shootPoint, 3);
         }
         return null;
     }
@@ -109,6 +110,20 @@ public class Invaders
         for (Invader invader : invaders) {
             invader.draw(canvas);
         }
+    }
+    
+    public boolean invaderCollidesWithProjectile(Projectile projectile) 
+    {
+        for (Invader invader : invaders) {
+            if (invader.getIsAlive()) {
+                if (invader.getBox().isColliding(projectile.getBox())) {
+                    invader.kill();
+                    aliveInvaders--;
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     
     /**
@@ -140,9 +155,11 @@ public class Invaders
     private double calculateSpeed()
     {
         //Calculate the speed to move
-        double speedFactor = 1.0 / aliveInvaders;
+        double speedFactor = (1.0 / aliveInvaders) * 10;
         double s = ((double)MAX_INVADERS / 4.0) * speedFactor;
-        s = Math.max(s, 2.0);
+        s = Math.max(s, 1.5);
+        
+        System.out.println(speedFactor);
         
         return invaderDirection == Direction.LEFT ? -s : s;
     }

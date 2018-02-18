@@ -34,4 +34,9 @@ public class Player
         canvas.setForegroundColor(Color.GREEN);
         canvas.fillRectangle(position.x, position.y, 50, 50);
     }
+    
+    public Vector2D getPosition() 
+    {
+        return position;
+    }
 }
