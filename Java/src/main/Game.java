@@ -5,9 +5,10 @@
  */
 package main;
 
+import state.PlayingState;
 import uni.Canvas;
 /**
- *
+ * The main class for the game
  * @author mhops
  */
 public class Game 
@@ -15,11 +16,14 @@ public class Game
     public static final int WIDTH = 1280;
     public static final int HEIGHT = 720;
     
+    private StateManager states;
     private Canvas canvas;
     
     public Game() 
     {
-        this.canvas = new Canvas(1280, 720,)
+        states = new StateManager(new PlayingState(this));
+        canvas = new Canvas("Space Invaders", WIDTH, HEIGHT);
+        canvas.addKeyListener(new Keyboard(states));
     }
     
     public void run()

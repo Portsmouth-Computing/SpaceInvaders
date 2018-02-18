@@ -8,7 +8,7 @@ package main;
 import java.util.Stack;
 import state.GameState;
 /**
- *
+ * Manages the states of the game
  * @author mhops
  */
 public class StateManager 
@@ -17,6 +17,7 @@ public class StateManager
     
     public StateManager(GameState initalState) 
     {
+        states = new Stack<>();
         pushState(initalState);
     }
     

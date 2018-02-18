@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 import main.Game;
 
 /**
- *
+ * State for playing the game
  * @author mhops
  */
 public class PlayingState extends GameState 
@@ -24,7 +24,9 @@ public class PlayingState extends GameState
     @Override
     public void handleInput(KeyEvent e) 
     {
-        
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            System.out.println("Left key pressed");
+        }
     }
 
     @Override

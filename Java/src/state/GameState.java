@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 import main.Game;
 
 /**
- *
+ * Base game state class
  * @author mhops
  */
 public abstract class GameState 
