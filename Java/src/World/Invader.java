@@ -8,7 +8,7 @@ import uni.Canvas;
  */
 public class Invader 
 {
-    public static final int SIZE = 32;
+    public static final int SIZE = 22;
     public boolean isAlive = true;
     
     private Vector2D position;

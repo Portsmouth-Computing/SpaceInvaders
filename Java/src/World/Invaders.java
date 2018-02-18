@@ -109,8 +109,6 @@ public class Invaders
         for (Invader invader : invaders) {
             invader.draw(canvas);
         }
-        
-        canvas.setForegroundColor(Color.RED);
     }
     
     /**

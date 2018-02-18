@@ -1,5 +1,6 @@
 package state;
 
+import java.awt.Color;
 import world.Invaders;
 import world.Player;
 import world.Vector2D;
@@ -81,11 +82,19 @@ public class PlayingState extends GameState
     {
         player.draw(canvas);
         invaders.draw(canvas);
+        
+        canvas.setForegroundColor(Color.RED);
         for(Projectile proj : worldProjectiles) {
             proj.draw(canvas);
         }
     }
     
+    /**
+     * Updates the projectiles by:
+     * -Removing destroyed ones
+     * -Moving them
+     * -Testing for collision with player
+     */
     private void updateProjectiles()
     {
         Iterator itr = worldProjectiles.iterator();
@@ -93,6 +102,15 @@ public class PlayingState extends GameState
             Projectile proj = (Projectile)itr.next();
             proj.update();
             
+            if (proj.getTarget() == Projectile.Target.INVADER) {
+                
+            } else {
+                
+            }
+            
+            if (proj.shouldBeRemoved()) {
+                itr.remove();
+            }
         }
     }
 }
