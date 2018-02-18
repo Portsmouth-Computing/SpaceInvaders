@@ -13,7 +13,7 @@ import uni.Canvas;
  */
 public class Invader 
 {
-    public static final int SIZE = 50;
+    public static final int SIZE = 32;
     
     private Vector2D position;
     
@@ -25,5 +25,15 @@ public class Invader
     public void draw(Canvas canvas)
     {
         canvas.fillRectangle(position.x, position.y, SIZE, SIZE);
+    }
+    
+    public void move(double xOffset)
+    {
+        position.x += xOffset;
+    }
+    
+    public void moveDown()
+    {
+        position.y += SIZE;
     }
 }

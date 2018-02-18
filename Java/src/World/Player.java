@@ -20,7 +20,7 @@ public class Player
     public Player()
     {
         velocity = new Vector2D();
-        position = new Vector2D(500.0, 500.0);
+        position = new Vector2D(500.0, 650.0);
     }
     
     public void move(Vector2D vector)

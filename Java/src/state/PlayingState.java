@@ -5,6 +5,7 @@
  */
 package state;
 
+import World.Invaders;
 import World.Player;
 import World.Vector2D;
 import java.awt.event.KeyEvent;
@@ -17,12 +18,14 @@ import uni.Canvas;
  */
 public class PlayingState extends GameState 
 {
-    Player player;
+    private Player player;
+    private Invaders invaders;
     
     public PlayingState(Game game) 
     {
         super(game);
         player = new Player();
+        invaders = new Invaders();
     }
     
     /**
@@ -47,6 +50,7 @@ public class PlayingState extends GameState
     public void update() 
     {
         player.update();
+        invaders.update();
     }
 
     /**
@@ -56,6 +60,7 @@ public class PlayingState extends GameState
     public void draw(Canvas canvas) 
     {
         player.draw(canvas);
+        invaders.drawAllInvaders(canvas);
     }
     
 }
