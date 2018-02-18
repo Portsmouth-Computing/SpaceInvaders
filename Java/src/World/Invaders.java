@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package World;
+package world;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -30,6 +30,9 @@ public class Invaders
     private Direction invaderDirection;
     private ArrayList<Invader> invaders;
     
+    /**
+     * Adds all the invaders into the game
+     */
     public Invaders()
     {
         leftPosition = 0;
@@ -51,13 +54,13 @@ public class Invaders
         }
     }
     
+    /**
+     * Moves all the invaders and maybe makes them shoot
+     */
     public void update()
     {
         double move = 2;
         double x = invaderDirection == Direction.LEFT ? -move : move;
-        System.out.println("Left:  "  + leftPosition  + " " + minLeft + "\n" +
-                           "Right: "  + rightPosition + " " + maxRight + "\n\n");
-        
         leftPosition += x;
         rightPosition += x;
         
@@ -79,6 +82,10 @@ public class Invaders
         }  
     }
     
+    /**
+     * Draws all the invaders
+     * @param canvas The canvas to draw the invaders onto
+     */
     public void drawAllInvaders(Canvas canvas)
     {
         canvas.setForegroundColor(Color.WHITE);

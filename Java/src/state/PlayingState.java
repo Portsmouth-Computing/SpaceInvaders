@@ -5,9 +5,9 @@
  */
 package state;
 
-import World.Invaders;
-import World.Player;
-import World.Vector2D;
+import world.Invaders;
+import world.Player;
+import world.Vector2D;
 import java.awt.event.KeyEvent;
 import main.Game;
 import uni.Canvas;
