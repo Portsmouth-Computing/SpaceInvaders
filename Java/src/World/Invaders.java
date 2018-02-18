@@ -22,6 +22,9 @@ public class Invaders
         RIGHT
     }
     
+    private final int ROWS = 5;
+    private final int COLUMNS = 11;
+    
     private int leftPosition;
     private int rightPosition;
     private final int minLeft;
@@ -42,8 +45,8 @@ public class Invaders
         
         invaders = new ArrayList<>(50);
         leftPosition = Invader.SIZE + Game.WIDTH / 4;
-        for (int y = 0; y < 5; y++) {
-            for (int x = 0; x < 12; x++) {
+        for (int y = 0; y < ROWS; y++) {
+            for (int x = 0; x < COLUMNS; x++) {
                 double xPos = x * Invader.SIZE + x * 32 + Game.WIDTH / 4;
                 double yPos = y * Invader.SIZE + y * 20 + Game.HEIGHT / 10;
                 
@@ -59,7 +62,7 @@ public class Invaders
      */
     public void update()
     {
-        double move = 2;
+        double move = 1;
         double x = invaderDirection == Direction.LEFT ? -move : move;
         leftPosition += x;
         rightPosition += x;

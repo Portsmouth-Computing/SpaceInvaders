@@ -39,17 +39,11 @@ public class Game
      */
     public void run()
     {
-        int ticks = 0;
         while (isRunning) {
-            
             GameState state = states.peekState();
-            
             clearCanvas();
-            
             state.update();
             state.draw(canvas);
-            
-            ticks++;
             canvas.wait(16);
         }
     }

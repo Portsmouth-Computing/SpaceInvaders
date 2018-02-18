@@ -34,6 +34,6 @@ public class Invader
     
     public void moveDown()
     {
-        position.y += SIZE;
+        position.y += SIZE / 2;
     }
 }
