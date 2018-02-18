@@ -7,7 +7,7 @@ import main.Game;
 import uni.Canvas;
 
 /**
- *
+ * Class to manage the invaders/ enemies of the game
  * @author mhops
  */
 public class Invaders 
@@ -87,6 +87,9 @@ public class Invaders
         }  
     }
     
+    /**
+     * @TODO implement
+     */
     public void tryShoot() 
     {
         if (random.nextInt(75) < 1) {
