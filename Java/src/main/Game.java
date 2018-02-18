@@ -47,9 +47,10 @@ public class Game
             clearCanvas();
             
             state.update();
-            state.draw();
+            state.draw(canvas);
             
             ticks++;
+            canvas.wait(16);
         }
     }
     

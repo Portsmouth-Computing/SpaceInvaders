@@ -7,6 +7,7 @@ package state;
 
 import java.awt.event.KeyEvent;
 import main.Game;
+import uni.Canvas;
 
 /**
  * Base game state class
@@ -23,7 +24,7 @@ public abstract class GameState
   
    public abstract void handleInput(KeyEvent e);
    public abstract void update();
-   public abstract void draw();
+   public abstract void draw(Canvas canvas);
    
    /**
     * Gets the game handle

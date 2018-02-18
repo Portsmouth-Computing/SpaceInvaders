@@ -5,8 +5,11 @@
  */
 package state;
 
+import World.Player;
+import World.Vector2D;
 import java.awt.event.KeyEvent;
 import main.Game;
+import uni.Canvas;
 
 /**
  * State for playing the game
@@ -14,11 +17,12 @@ import main.Game;
  */
 public class PlayingState extends GameState 
 {
+    Player player;
     
     public PlayingState(Game game) 
     {
         super(game);
-        
+        player = new Player();
     }
     
     /**
@@ -29,7 +33,10 @@ public class PlayingState extends GameState
     public void handleInput(KeyEvent e) 
     {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            System.out.println("Left key pressed");
+            player.move(new Vector2D(-1, 0));
+        }
+        else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            player.move(new Vector2D(1, 0));
         }
     }
 
@@ -39,15 +46,16 @@ public class PlayingState extends GameState
     @Override
     public void update() 
     {
-        
+        player.update();
     }
 
     /**
      * Draw everything in the game
      */
     @Override
-    public void draw() {
-        
+    public void draw(Canvas canvas) 
+    {
+        player.draw(canvas);
     }
     
 }
