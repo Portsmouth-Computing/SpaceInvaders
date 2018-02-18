@@ -12,22 +12,22 @@ public abstract class GameState
 {
     private Game game;
     
-   public GameState(Game game) 
-   {
-       this.game = game;
-   }
+    public GameState(Game game) 
+    {
+        this.game = game;
+    }
   
-   public abstract void handleKeyPress(int key);
-   public abstract void handleKeyUp(int key);
-   public abstract void update();
-   public abstract void draw(Canvas canvas);
+    public abstract void handleKeyPress(int key);
+    public abstract void handleKeyUp(int key);
+    public abstract void update();
+    public abstract void draw(Canvas canvas);
    
-   /**
-    * Gets the game handle
-    * @return The main class of the game
-    */
-   protected Game getGame()
-   {
-       return game;
-   }
+    /**
+      * Gets the game handle
+      * @return The main class of the game
+      */
+    protected Game getGame()
+    {
+        return game;
+    }
 }
