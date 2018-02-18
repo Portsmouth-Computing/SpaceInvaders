@@ -58,6 +58,7 @@ public class PlayingState extends GameState
     {
         player.update();
         invaders.move();
+        invaders.tryShoot();
     }
 
     /**

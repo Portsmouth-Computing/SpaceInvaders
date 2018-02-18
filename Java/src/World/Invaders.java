@@ -2,6 +2,7 @@ package world;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Random;
 import main.Game;
 import uni.Canvas;
 
@@ -27,12 +28,14 @@ public class Invaders
     
     private Direction invaderDirection;
     private ArrayList<Invader> invaders;
+    private Random random;
     
     /**
      * Adds all the invaders into the game
      */
     public Invaders()
     {
+        random = new Random();
         leftPosition = 0;
         rightPosition = 0;
         minLeft = 100;
@@ -82,6 +85,13 @@ public class Invaders
         }  
     }
     
+    public void tryShoot() 
+    {
+        if (random.nextInt(75) < 1) {
+            Vector2D shootPoint = getRandomLowestInvaderPosition();
+        }
+    }
+    
     /**
      * Draws all the invaders
      * @param canvas The canvas to draw the invaders onto
@@ -91,6 +101,29 @@ public class Invaders
         canvas.setForegroundColor(Color.WHITE);
         for (Invader invader : invaders) {
             invader.draw(canvas);
+        }
+        
+        canvas.setForegroundColor(Color.RED);
+    }
+    
+    /**
+     * Gets a random lowest point of an invader, used for firing projectiles from
+     * this point.
+     * @return A random point below an invader
+     */
+    private Vector2D getRandomLowestInvaderPosition() 
+    {
+        while (true) {
+            int column = random.nextInt(COLUMNS - 1);
+            for (int y = ROWS - 1; y > 0; y--) {
+                Invader inv = invaders.get(y * COLUMNS + column);
+                if (inv.getIsAlive()) {
+                    Vector2D position = inv.getPosition().copy();
+                    position.x += Invader.SIZE / 2;
+                    position.y += Invader.SIZE + 5;
+                    return position;
+                }
+            }
         }
     }
 }

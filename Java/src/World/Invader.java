@@ -34,4 +34,14 @@ public class Invader
     {
         position.y += SIZE / 2;
     }
+    
+    public boolean getIsAlive() 
+    {
+        return isAlive;
+    }
+    
+    public Vector2D getPosition()
+    {
+        return position;
+    }
 }

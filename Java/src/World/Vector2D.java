@@ -25,4 +25,9 @@ public class Vector2D
         this.x += other.x;
         this.y += other.y;
     }
+    
+    Vector2D copy()
+    {
+        return new Vector2D(x, y);
+    }
 }
