@@ -64,6 +64,10 @@ public class Canvas
         setVisible(true);
     }
     
+    /**
+     * Custom method because I wanted to use non blocking keyboard input 
+     * @param listener 
+     */
     public void addKeyListener(KeyListener listener) 
     {
         frame.addKeyListener(listener);
