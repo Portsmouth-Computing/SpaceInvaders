@@ -64,6 +64,8 @@ public class Invaders
         leftPosition += x;
         rightPosition += x;
         
+        //If the invaders reach the edge of left/right of window
+        //make them move the other way
         boolean moveDown = false;
         if (leftPosition <= minLeft) {
             invaderDirection = Direction.RIGHT;
