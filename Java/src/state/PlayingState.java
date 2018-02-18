@@ -24,18 +24,30 @@ public class PlayingState extends GameState
     }
     
     /**
-     * Handles the input of the current state
-     * @param e KeyEvent event to get the key pressed
+     * Handles the real time keyboard input
+     * @param key The key being pressed
      */
     @Override
-    public void handleInput(KeyEvent e) 
+    public void handleKeyPress(int key) 
     {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+        if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) {
             player.move(new Vector2D(-1, 0));
         }
-        else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+        else if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) {
             player.move(new Vector2D(1, 0));
         }
+    }
+    
+    /**
+     * Handles the a key being released
+     * @param key The key that was released
+     */
+    @Override
+    public void handleKeyUp(int key) 
+    {
+       if (key == KeyEvent.VK_SPACE) {
+           //Shoot
+       }
     }
 
     /**
@@ -45,17 +57,17 @@ public class PlayingState extends GameState
     public void update() 
     {
         player.update();
-        invaders.update();
+        invaders.move();
     }
 
     /**
      * Draw everything in the game
+     * @param canvas The canvas to draw onto
      */
     @Override
     public void draw(Canvas canvas) 
     {
         player.draw(canvas);
-        invaders.drawAllInvaders(canvas);
+        invaders.draw(canvas);
     }
-    
 }

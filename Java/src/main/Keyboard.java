@@ -19,11 +19,15 @@ public class Keyboard implements KeyListener
     @Override
     public void keyPressed(KeyEvent e) 
     {
-        states.peekState().handleInput(e);
+        states.peekState().handleKeyPress(e.getKeyCode());
     }
 
     @Override
-    public void keyReleased(KeyEvent e) { }
+    public void keyReleased(KeyEvent e) 
+    { 
+        states.peekState().handleKeyUp(e.getKeyCode());
+    }
+    
     @Override
     public void keyTyped(KeyEvent e) { }
 }

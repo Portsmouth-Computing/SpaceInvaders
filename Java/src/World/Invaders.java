@@ -55,7 +55,7 @@ public class Invaders
     /**
      * Moves all the invaders and maybe makes them shoot
      */
-    public void update()
+    public void move()
     {
         double move = 1;
         double x = invaderDirection == Direction.LEFT ? -move : move;
@@ -86,7 +86,7 @@ public class Invaders
      * Draws all the invaders
      * @param canvas The canvas to draw the invaders onto
      */
-    public void drawAllInvaders(Canvas canvas)
+    public void draw(Canvas canvas)
     {
         canvas.setForegroundColor(Color.WHITE);
         for (Invader invader : invaders) {

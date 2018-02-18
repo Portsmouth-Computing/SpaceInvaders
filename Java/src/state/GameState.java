@@ -17,7 +17,8 @@ public abstract class GameState
        this.game = game;
    }
   
-   public abstract void handleInput(KeyEvent e);
+   public abstract void handleKeyPress(int key);
+   public abstract void handleKeyUp(int key);
    public abstract void update();
    public abstract void draw(Canvas canvas);
    
