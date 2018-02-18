@@ -15,22 +15,37 @@ public class StateManager
 {
     private Stack<GameState> states;
     
+    /**
+     * Constructs the state manager with an initial state
+     * @param initalState The GameState to begin the game with
+     */
     public StateManager(GameState initalState) 
     {
         states = new Stack<>();
         pushState(initalState);
     }
     
+    /**
+     * Get the current state
+     * @return The current state at the top of the stack
+     */
     public GameState peekState() 
     {
         return states.peek();
     }
     
+    /**
+     * Pushes a new state onto the stack stack
+     * @param newState The new game state
+     */
     public void pushState(GameState newState) 
     {
         states.add(newState);
     }
     
+    /**
+     * If there is a current state, then ends the current state
+     */
     public void tryPopState() 
     {
         if (states.size() > 0) {

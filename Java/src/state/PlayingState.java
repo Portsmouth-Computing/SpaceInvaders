@@ -21,6 +21,10 @@ public class PlayingState extends GameState
         
     }
     
+    /**
+     * Handles the input of the current state
+     * @param e KeyEvent event to get the key pressed
+     */
     @Override
     public void handleInput(KeyEvent e) 
     {
@@ -29,12 +33,18 @@ public class PlayingState extends GameState
         }
     }
 
+    /**
+     * Update the game
+     */
     @Override
     public void update() 
     {
         
     }
 
+    /**
+     * Draw everything in the game
+     */
     @Override
     public void draw() {
         

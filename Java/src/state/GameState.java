@@ -16,7 +16,7 @@ public abstract class GameState
 {
     private Game game;
     
-   public  GameState(Game game) 
+   public GameState(Game game) 
    {
        this.game = game;
    }
@@ -25,6 +25,10 @@ public abstract class GameState
    public abstract void update();
    public abstract void draw();
    
+   /**
+    * Gets the game handle
+    * @return The main class of the game
+    */
    protected Game getGame()
    {
        return game;
