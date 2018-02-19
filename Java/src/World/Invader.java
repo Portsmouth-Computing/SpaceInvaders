@@ -1,6 +1,7 @@
 package world;
 
 import uni.Canvas;
+import util.Timer;
 
 /**
  * Represents an invader/ enemy of the game
@@ -8,14 +9,19 @@ import uni.Canvas;
  */
 public class Invader 
 {
-    public static final int SIZE = 22;
+    public static final int WIDTH = 50;
+    public static final int HEIGHT = 25;
     public boolean isAlive = true;
+    
+    private Timer animTimer;
+    public int tAnimFrame = 0;
     
     private BoundingBox box;
     
     public Invader(Vector2D position)
     {
-        box = new BoundingBox(SIZE, SIZE, position.x, position.y);
+        box = new BoundingBox(WIDTH, HEIGHT, position.x, position.y);
+        animTimer = new Timer();
     }
     
     /**
@@ -25,8 +31,34 @@ public class Invader
     public void draw(Canvas canvas)
     {
         if (isAlive) {
-            canvas.fillRectangle(box.getX(), box.getY(), SIZE, SIZE);
+            if (animTimer.getTimeAsSeconds() > 1) {
+                tAnimFrame++;
+                animTimer.reset();
+                if (tAnimFrame > 1) {
+                    tAnimFrame = 0;
+                }
+            }
+            switch(tAnimFrame) {
+                case 0:
+                    drawFrame0(canvas);
+                    break;
+                
+                case 1:
+                    drawFrame1(canvas);
+                    break;
+            }
+            
         }
+    }
+    
+    private void drawFrame0(Canvas canvas)
+    {
+        canvas.fillRectangle(box.getX(), box.getY(), WIDTH, HEIGHT);
+    }
+    
+    private void drawFrame1(Canvas canvas) 
+    {
+        canvas.fillRectangle(box.getX(), box.getY(), WIDTH, HEIGHT - 10);
     }
     
     /**
@@ -43,7 +75,7 @@ public class Invader
      */
     public void moveDown()
     {
-        box.updatePosition(box.getX(), box.getY() + SIZE / 2);
+        box.updatePosition(box.getX(), box.getY() + WIDTH / 2);
     }
     
     /**

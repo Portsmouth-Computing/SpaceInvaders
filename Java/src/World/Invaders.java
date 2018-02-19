@@ -13,6 +13,9 @@ import uni.Canvas;
  */
 public class Invaders 
 {
+    /**
+     * The direction the invaders are currently moving in
+     */
     enum Direction 
     {
         LEFT,
@@ -20,7 +23,7 @@ public class Invaders
     }
     
     private final int ROWS = 5;
-    private final int COLUMNS = 11;
+    private final int COLUMNS = 10;
     private final int MAX_INVADERS = ROWS * COLUMNS;
     
     private int aliveInvaders = MAX_INVADERS;
@@ -41,15 +44,15 @@ public class Invaders
         random = new Random();
         leftPosition = 0;
         rightPosition = 0;
-        minLeft = 100;
+        minLeft = 65;
         maxRight = Game.WIDTH - minLeft;
         
         invaders = new ArrayList<>(50);
-        leftPosition = Invader.SIZE + Game.WIDTH / 4;
+        leftPosition = Invader.WIDTH + Game.WIDTH / 4;
         for (int y = 0; y < ROWS; y++) {
             for (int x = 0; x < COLUMNS; x++) {
-                double xPos = x * Invader.SIZE + x * 32 + Game.WIDTH / 4;
-                double yPos = y * Invader.SIZE + y * 20 + Game.HEIGHT / 10;
+                double xPos = x * Invader.WIDTH + x * 10 + Game.WIDTH / 4;
+                double yPos = y * Invader.HEIGHT + y * 20 + Game.HEIGHT / 10;
                 
                 invaders.add(new Invader(new Vector2D(xPos, yPos)));
              
@@ -145,8 +148,8 @@ public class Invaders
                 Invader inv = invaders.get(y * COLUMNS + column);
                 if (inv.getIsAlive()) {
                     Vector2D position = inv.getPosition().copy();
-                    position.x += Invader.SIZE / 2;
-                    position.y += Invader.SIZE + 5;
+                    position.x += Invader.WIDTH / 2;
+                    position.y += Invader.HEIGHT + 5;
                     return position;
                 }
             }
@@ -162,7 +165,7 @@ public class Invaders
     {
         //Calculate the speed to move
         double speedFactor = (1.0 / aliveInvaders) * 10;
-        double s = ((double)MAX_INVADERS / 4.0) * speedFactor;
+        double s = ((double)MAX_INVADERS / 7.5) * speedFactor;
         s = Math.max(s, 1.5);
         
         return invaderDirection == Direction.LEFT ? -s : s;

@@ -43,7 +43,6 @@ public class Timer
      */
     public void reset()
     {
-        System.out.println("Reset");
         startTime = now();
     }
     
