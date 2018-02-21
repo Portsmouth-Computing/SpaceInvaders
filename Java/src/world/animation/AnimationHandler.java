@@ -21,14 +21,14 @@ public class AnimationHandler
         this.delay = delay;
     }
     
-    public void draw(Canvas c, double xPosition, double yPostion) 
+    public void draw(Canvas c, double xPosition, double yPostion, boolean progress) 
     {
         if (currentFrame == animation.getNumberFrames()) {
             currentFrame = 0; 
         }
         
         animation.draw(c, xPosition, yPostion, currentFrame);
-        if (animationTimer.getTimeAsSeconds() >= delay) {
+        if (animationTimer.getTimeAsSeconds() >= delay && progress) {
             currentFrame++;
             animationTimer.reset();
         }

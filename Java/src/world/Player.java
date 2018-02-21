@@ -13,13 +13,17 @@ public class Player
 {  
     public static final int WIDTH = 55;
     
-    AnimationHandler renderer;
+    AnimationHandler lastUsed;
+    AnimationHandler leftAnim;
+    AnimationHandler rightAnim;
     BoundingBox box;
     Vector2D velocity;
     
     public Player()
     {
-        renderer = new AnimationHandler(AnimationType.PLAYER.get(), 0.1f);
+        leftAnim = new AnimationHandler(AnimationType.PLAYER_LEFT.get(), 0.1f);
+        rightAnim = new AnimationHandler(AnimationType.PLAYER_RIGHT.get(), 0.1f);
+        lastUsed = rightAnim;
         box = new BoundingBox(55, 40, 500, 675);
         velocity = new Vector2D();
     }
@@ -38,7 +42,16 @@ public class Player
     public void draw(Canvas canvas) 
     {
         canvas.setForegroundColor(Color.GREEN);
-        renderer.draw(canvas, box.getX(), box.getY());
+        if (velocity.x > 0.2) {
+            rightAnim.draw(canvas, box.getX(), box.getY(), true);
+            lastUsed = rightAnim;
+        } else if (velocity.x < -0.2) {
+            leftAnim.draw(canvas, box.getX(), box.getY(), true);
+            lastUsed = leftAnim;
+        } else {
+            lastUsed.draw(canvas, box.getX(), box.getY(), false);
+            
+        }
     }
     
     public Vector2D getPosition() 

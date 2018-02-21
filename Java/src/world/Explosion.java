@@ -38,6 +38,6 @@ public class Explosion
      */
     public void draw(Canvas canvas)
     {   
-        animHandle.draw(canvas, position.x, position.y);
+        animHandle.draw(canvas, position.x, position.y, true);
     }
 }

@@ -58,7 +58,7 @@ public class Projectile
      */
     public void draw(Canvas canvas)
     {
-        renderer.draw(canvas, box.getX(), box.getY());
+        renderer.draw(canvas, box.getX(), box.getY(), true);
     }
     
     /**

@@ -33,7 +33,7 @@ public class Invader
     public void draw(Canvas canvas)
     {
         if (isAlive) {
-            renderer.draw(canvas, box.getX(), box.getY());
+            renderer.draw(canvas, box.getX(), box.getY(), true);
         }
     }
     

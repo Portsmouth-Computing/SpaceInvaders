@@ -15,7 +15,8 @@ public enum AnimationType
     ENEMY_SQUID("res/Invader2.txt"),
     EXPLOSION("res/Explosion.txt"),
     ENEMY_PROJ("res/EnemyProj.txt"),
-    PLAYER("res/Player.txt");
+    PLAYER_LEFT("res/PlayerLeft.txt"),
+    PLAYER_RIGHT("res/PlayerRight.txt");
     
     private final Animation animation;
     
