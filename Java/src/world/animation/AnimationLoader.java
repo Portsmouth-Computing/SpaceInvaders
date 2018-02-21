@@ -52,8 +52,6 @@ public class AnimationLoader
         } catch(IOException e) {
             e.printStackTrace();
         }
-        
-        System.out.println("Frames: " + frames.size());
         return frames;
     }
     

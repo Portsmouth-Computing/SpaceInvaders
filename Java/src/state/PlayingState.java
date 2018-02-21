@@ -55,7 +55,6 @@ public class PlayingState extends GameState
     @Override
     public void handleKeyUp(int key) 
     {
-       System.out.println(shootTimer.getTimeAsSeconds() );
         if (shootTimer.getTimeAsSeconds() >= 0.5) {
              if (key == KeyEvent.VK_SPACE) {
                  worldProjectiles.add(new Projectile(player.getPosition(), -10));
