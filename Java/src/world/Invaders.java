@@ -44,11 +44,11 @@ public class Invaders
     public Invaders()
     {
         Animation[] animations = { 
+            AnimationType.ENEMY_SHELL.get(),
             AnimationType.ENEMY_SQUID.get(), 
             AnimationType.ENEMY_SQUID.get(), 
             AnimationType.ENEMY_CLASSIC.get(), 
-            AnimationType.ENEMY_CLASSIC.get(),
-            AnimationType.ENEMY_SHELL.get()
+            AnimationType.ENEMY_CLASSIC.get()
         };
         random = new Random();
         leftPosition = 0;
@@ -177,7 +177,7 @@ public class Invaders
         //Calculate the speed to move
         double speedFactor = (1.0 / aliveInvaders) * 10;
         double s = ((double)MAX_INVADERS / 7.5) * speedFactor;
-        s = Math.max(s, 1) / 2.0;
+        s = Math.min(Math.max(s, 1), 5) / 2.0;
         
         return invaderDirection == Direction.LEFT ? -s : s;
     }

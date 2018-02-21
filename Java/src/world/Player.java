@@ -1,6 +1,7 @@
 package world;
 
 import java.awt.Color;
+import main.Game;
 import uni.Canvas;
 import world.animation.AnimationHandler;
 import world.animation.AnimationType;
@@ -11,7 +12,7 @@ import world.animation.AnimationType;
  */
 public class Player 
 {  
-    public static final int WIDTH = 55;
+    public static final int WIDTH = 55, HEIGHT = 50;
     
     AnimationHandler lastUsed;
     AnimationHandler leftAnim;
@@ -24,7 +25,8 @@ public class Player
         leftAnim = new AnimationHandler(AnimationType.PLAYER_LEFT.get(), 0.1f);
         rightAnim = new AnimationHandler(AnimationType.PLAYER_RIGHT.get(), 0.1f);
         lastUsed = rightAnim;
-        box = new BoundingBox(55, 40, 500, 675);
+        box = new BoundingBox(WIDTH, HEIGHT, 
+                              Game.WIDTH / 2 - WIDTH / 2, Game.HEIGHT - 50);
         velocity = new Vector2D();
     }
     

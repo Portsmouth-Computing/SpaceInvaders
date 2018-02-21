@@ -11,8 +11,8 @@ import world.animation.Animation;
  */
 public class Game 
 {
-    public static final int WIDTH = 1280;
-    public static final int HEIGHT = 720;
+    public static final int WIDTH = 1300;
+    public static final int HEIGHT = 800;
     
     private StateManager states;
     private Canvas canvas;
