@@ -42,7 +42,9 @@ public class Invaders
      */
     public Invaders()
     {
-        Animation invAnim = new Animation("res/Invader.txt");
+        Animation classic = new Animation("res/Invader.txt");
+        Animation squid   = new Animation("res/Invader2.txt");
+        Animation[] animations = { squid, squid, classic, classic };
         random = new Random();
         leftPosition = 0;
         rightPosition = 0;
@@ -51,12 +53,14 @@ public class Invaders
         
         invaders = new ArrayList<>(50);
         leftPosition = Invader.WIDTH + Game.WIDTH / 4;
+        Random rand = new Random();
         for (int y = 0; y < ROWS; y++) {
+            Animation animation = animations[y];
             for (int x = 0; x < COLUMNS; x++) {
                 double xPos = x * Invader.WIDTH + x * 10 + Game.WIDTH / 4;
                 double yPos = y * Invader.HEIGHT + y * 20 + Game.HEIGHT / 10;
                 
-                invaders.add(new Invader(invAnim, new Vector2D(xPos, yPos)));
+                invaders.add(new Invader(animation, new Vector2D(xPos, yPos)));
              
                 rightPosition = Math.max(rightPosition, (int)xPos);
             }
@@ -123,18 +127,18 @@ public class Invaders
      * @param projectile The projectile to test collisions against
      * @return Whether or not there was a collision
      */
-    public boolean invaderCollidesWithProjectile(Projectile projectile) 
+    public HitResult invaderCollidesWithProjectile(Projectile projectile) 
     {
         for (Invader invader : invaders) {
             if (invader.getIsAlive()) {
                 if (invader.getBox().isColliding(projectile.getBox())) {
                     invader.kill();
                     aliveInvaders--;
-                    return true;
+                    return new HitResult(true, invader.getPosition());
                 }
             }
         }
-        return false;
+        return new HitResult(false, null);
     }
     
     /**

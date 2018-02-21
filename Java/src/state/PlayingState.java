@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import main.Game;
 import uni.Canvas;
+import util.Pair;
 import util.Timer;
+import world.HitResult;
 import world.Projectile;
 
 /**
@@ -19,7 +21,7 @@ import world.Projectile;
 public class PlayingState extends GameState 
 {
     private ArrayList<Projectile> worldProjectiles;
-    
+    private ArrayList<Vector2D> explosionLocations;
     private Player player;
     private Invaders invaders;
     private Timer shootTimer;
@@ -113,8 +115,10 @@ public class PlayingState extends GameState
                     itr.remove();
                 }
             } else {
-                if (invaders.invaderCollidesWithProjectile(proj)) {
+                HitResult res = invaders.invaderCollidesWithProjectile(proj);
+                if (res.getIsHit()) {
                     itr.remove();
+                    explosionLocations.add(res.getHitLocation());
                     continue;
                 }
             }
