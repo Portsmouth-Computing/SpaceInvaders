@@ -13,7 +13,7 @@ import world.animation.AnimationType;
 public class Explosion 
 {
     private Vector2D position;
-    private Timer    lifeTimer;
+    private Timer lifeTimer;
     private AnimationHandler animHandle;
     
     public Explosion(Vector2D expPosition)

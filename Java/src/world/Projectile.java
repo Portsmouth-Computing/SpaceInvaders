@@ -3,6 +3,8 @@ package world;
 
 import main.Game;
 import uni.Canvas;
+import world.animation.AnimationHandler;
+import world.animation.AnimationType;
 
 /**
  * Represents a projectile in the world
@@ -12,13 +14,14 @@ public class Projectile
 {
     
     
-    public static final int HEIGHT = 8;
-    public static final int WIDTH  = 5;
+    public static final int HEIGHT = 35;
+    public static final int WIDTH  = 15;
     private double ySpeed;
     private boolean shouldRemove;
     private boolean targetingPlayer;
     
     private BoundingBox box;
+    private AnimationHandler renderer;
     
     /**
      * Constructs the projectile
@@ -33,6 +36,8 @@ public class Projectile
         
         //If it moves down, target player, else target enemy
         targetingPlayer = ySpeed > 0;
+        
+        renderer = new AnimationHandler(AnimationType.ENEMY_PROJ.get(), 0.1f);
     }
     
     /**
@@ -53,7 +58,7 @@ public class Projectile
      */
     public void draw(Canvas canvas)
     {
-        canvas.fillRectangle(box.getX(), box.getY(), WIDTH, HEIGHT);
+        renderer.draw(canvas, box.getX(), box.getY());
     }
     
     /**
