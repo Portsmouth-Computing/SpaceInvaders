@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- *
+ * Helper class to load an animation
  * @author mhops
  */
 public class AnimationLoader 
@@ -22,6 +22,9 @@ public class AnimationLoader
     boolean loadingFrame;
     boolean end;
     
+    /**
+     * Constructs the class
+     */
     public AnimationLoader()
     {
         frames = new ArrayList<>();
@@ -30,6 +33,11 @@ public class AnimationLoader
         end = false;
     }
     
+    /**
+     * Loads an animation
+     * @param fileName The file which contains information about frames of an animation
+     * @return ArrayList of frames of the animation
+     */
     public ArrayList<Frame> loadAnimation(String fileName) 
     {
         try {
@@ -48,6 +56,10 @@ public class AnimationLoader
         return frames;
     }
     
+    /**
+     * Reads a line of the animation file and loads it into the right places
+     * @param line A line of the animation file
+     */
     private void readLine(String line) 
     {
         String[] tokens = line.split("\\s+");
@@ -78,14 +90,17 @@ public class AnimationLoader
         }
     }
     
+    /**
+     * Loads a rectangle
+     * @param tokens numbers/ tokens of this line
+     * @param erase If true, the canvas will have a rectangle erased
+     */
     private void loadRectangle(String[] tokens, boolean erase) 
     {
-        
-    }
-    
-    private enum LoadState 
-    {
-        LOAD_FRAME,
-        FIND_FRAME
+        System.out.println("Loading a rectangle");
+        for (String token : tokens) {
+            System.out.println("Token: " + token);
+        }
+        System.out.println("End loading a rectangle");
     }
 }

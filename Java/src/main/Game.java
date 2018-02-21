@@ -4,6 +4,7 @@ import java.awt.Color;
 import state.GameState;
 import state.PlayingState;
 import uni.Canvas;
+import world.animation.Animation;
 /**
  * The main class for the game
  * @author mhops
@@ -61,6 +62,7 @@ public class Game
     
     public static void main(String... args) 
     {
+        Animation anim = new Animation("res/invader.txt");
         new Game().run();
     }
 }
