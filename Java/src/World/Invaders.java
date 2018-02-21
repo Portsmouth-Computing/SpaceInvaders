@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Random;
 import main.Game;
 import uni.Canvas;
+import world.animation.Animation;
 
 /**
  * Class to manage the invaders/ enemies of the game
@@ -41,6 +42,7 @@ public class Invaders
      */
     public Invaders()
     {
+        Animation invAnim = new Animation("res/Invader.txt");
         random = new Random();
         leftPosition = 0;
         rightPosition = 0;
@@ -54,7 +56,7 @@ public class Invaders
                 double xPos = x * Invader.WIDTH + x * 10 + Game.WIDTH / 4;
                 double yPos = y * Invader.HEIGHT + y * 20 + Game.HEIGHT / 10;
                 
-                invaders.add(new Invader(new Vector2D(xPos, yPos)));
+                invaders.add(new Invader(invAnim, new Vector2D(xPos, yPos)));
              
                 rightPosition = Math.max(rightPosition, (int)xPos);
             }

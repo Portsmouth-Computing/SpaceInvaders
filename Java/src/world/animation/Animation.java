@@ -5,10 +5,6 @@
  */
 package world.animation;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import uni.Canvas;
 
@@ -22,15 +18,19 @@ public class Animation
     //The frames of the animation
     private ArrayList<Frame> frames;
     
-    
     public Animation(String fileName) 
     {
         AnimationLoader loader = new AnimationLoader();
         frames = loader.loadAnimation(fileName);
     }
     
-    public void draw(Canvas c, double x, double y) 
+    public void draw(Canvas c, double x, double y, int frame) 
     {
-        frames.get(0).draw(c, x, y);
+        frames.get(frame).draw(c, x, y);
+    }
+    
+    public int getNumberFrames()
+    {
+        return frames.size();
     }
 }
