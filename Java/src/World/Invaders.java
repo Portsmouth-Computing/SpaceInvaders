@@ -23,7 +23,7 @@ public class Invaders
     }
     
     private final int ROWS = 5;
-    private final int COLUMNS = 10;
+    private final int COLUMNS = 11;
     private final int MAX_INVADERS = ROWS * COLUMNS;
     
     private int aliveInvaders = MAX_INVADERS;
@@ -166,7 +166,7 @@ public class Invaders
         //Calculate the speed to move
         double speedFactor = (1.0 / aliveInvaders) * 10;
         double s = ((double)MAX_INVADERS / 7.5) * speedFactor;
-        s = Math.max(s, 1.5);
+        s = Math.max(s, 1) / 2.0;
         
         return invaderDirection == Direction.LEFT ? -s : s;
     }

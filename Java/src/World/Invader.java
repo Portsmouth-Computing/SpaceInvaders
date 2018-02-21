@@ -9,8 +9,8 @@ import util.Timer;
  */
 public class Invader 
 {
-    public static final int WIDTH = 50;
-    public static final int HEIGHT = 25;
+    public static final int WIDTH = 55;
+    public static final int HEIGHT = 40;
     public boolean isAlive = true;
     
     private Timer animTimer;
@@ -31,7 +31,7 @@ public class Invader
     public void draw(Canvas canvas)
     {
         if (isAlive) {
-            if (animTimer.getTimeAsSeconds() > 1) {
+            if (animTimer.getTimeAsSeconds() > 0.75) {
                 tAnimFrame++;
                 animTimer.reset();
                 if (tAnimFrame > 1) {
@@ -53,12 +53,63 @@ public class Invader
     
     private void drawFrame0(Canvas canvas)
     {
-        canvas.fillRectangle(box.getX(), box.getY(), WIDTH, HEIGHT);
+        double x = box.getX();
+        double y = box.getY();
+        //ears
+        canvas.fillRectangle(x + 10, y, 5, 5);
+        canvas.fillRectangle(x + 40, y, 5, 5);
+        canvas.fillRectangle(x + 15, y + 5, 5, 5);
+        canvas.fillRectangle(x + 35, y + 5, 5, 5);
+        
+        //body
+        canvas.fillRectangle(x + 10, y + 10, 35, 20);
+        
+        //arms
+        canvas.fillRectangle(x + 5, y + 15, 5, 10);
+        canvas.fillRectangle(x + 45, y + 15, 5, 10);
+        canvas.fillRectangle(x, y + 20, 5, 15);
+        canvas.fillRectangle(x + 50, y + 20, 5, 15);
+        
+        //mouth
+        canvas.fillRectangle(x + 10, y + 30, 5, 5);
+        canvas.fillRectangle(x + 40, y + 30, 5, 5);
+        canvas.fillRectangle(x + 15, y + 35, 10, 5);
+        canvas.fillRectangle(x + 30, y + 35, 10, 5);
+        
+        //eyes
+        canvas.eraseRectangle(x + 15, y + 15, 5, 5);
+        canvas.eraseRectangle(x + 35, y + 15, 5, 5);
     }
     
     private void drawFrame1(Canvas canvas) 
     {
-        canvas.fillRectangle(box.getX(), box.getY(), WIDTH, HEIGHT - 10);
+        double x = box.getX();
+        double y = box.getY();
+        //ears
+        canvas.fillRectangle(x + 10, y, 5, 5);
+        canvas.fillRectangle(x + 40, y, 5, 5);
+        canvas.fillRectangle(x + 15, y + 5, 5, 5);
+        canvas.fillRectangle(x + 35, y + 5, 5, 5);
+        
+        //body
+        canvas.fillRectangle(x + 10, y + 10, 35, 20);
+        
+        //arms
+        canvas.fillRectangle(x + 5, y + 15, 5, 10);
+        canvas.fillRectangle(x + 45, y + 15, 5, 10);
+        
+        canvas.fillRectangle(x, y + 5, 5, 15);
+        canvas.fillRectangle(x + 50, y + 5, 5, 15);
+        
+        //mouth
+        canvas.fillRectangle(x + 10, y + 30, 5, 5);
+        canvas.fillRectangle(x + 40, y + 30, 5, 5);
+        canvas.fillRectangle(x + 15, y + 35, 10, 5);
+        canvas.fillRectangle(x + 30, y + 35, 10, 5);
+        
+        //eyes
+        canvas.eraseRectangle(x + 15, y + 15, 5, 5);
+        canvas.eraseRectangle(x + 35, y + 15, 5, 5);
     }
     
     /**
