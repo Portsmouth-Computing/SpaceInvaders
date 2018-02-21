@@ -44,6 +44,12 @@ public class BoundingBox
         return height;
     }
     
+    public void movePosition(double xOffset, double yOffset)
+    {
+        x += xOffset;
+        y += yOffset;
+    }
+    
     public void updatePosition(double newX, double newY)
     {
         x = newX;

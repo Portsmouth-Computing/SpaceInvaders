@@ -103,13 +103,15 @@ public class PlayingState extends GameState
      */
     private void updateProjectiles()
     {
-        Iterator itr = worldProjectiles.iterator();
+        Iterator<Projectile> itr = worldProjectiles.iterator();
         while(itr.hasNext()) {
-            Projectile proj = (Projectile)itr.next();
+            Projectile proj = itr.next();
             proj.update();
             
             if (proj.isTargetingPlayer()) {
-                
+                if (player.getBox().isColliding(proj.getBox())) {
+                    itr.remove();
+                }
             } else {
                 if (invaders.invaderCollidesWithProjectile(proj)) {
                     itr.remove();

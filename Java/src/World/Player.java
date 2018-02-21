@@ -9,13 +9,13 @@ import uni.Canvas;
  */
 public class Player 
 {  
-    Vector2D position;
+    BoundingBox box;
     Vector2D velocity;
     
     public Player()
     {
+        box = new BoundingBox(30, 30, 500, 675);
         velocity = new Vector2D();
-        position = new Vector2D(500.0, 650.0);
     }
     
     public void move(Vector2D vector)
@@ -25,18 +25,23 @@ public class Player
     
     public void update()
     {
-        position.add(velocity);
+        box.movePosition(velocity.x, velocity.y);
         velocity.x *= 0.93;
     }
     
     public void draw(Canvas canvas) 
     {
         canvas.setForegroundColor(Color.GREEN);
-        canvas.fillRectangle(position.x, position.y, 50, 50);
+        canvas.fillRectangle(box.getX(), box.getY(), 30, 30);
     }
     
     public Vector2D getPosition() 
     {
-        return position;
+        return new Vector2D(box.getX(), box.getY());
+    }
+    
+    public BoundingBox getBox()
+    {
+        return box;
     }
 }

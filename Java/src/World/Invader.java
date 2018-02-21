@@ -42,7 +42,7 @@ public class Invader
      */
     public void move(double xOffset)
     {
-        box.updatePosition(box.getX() + xOffset, box.getY());
+        box.movePosition(xOffset, 0);
     }
     
     /**
@@ -50,7 +50,7 @@ public class Invader
      */
     public void moveDown()
     {
-        box.updatePosition(box.getX(), box.getY() + WIDTH / 2);
+        box.movePosition(0, WIDTH / 2);
     }
     
     /**
