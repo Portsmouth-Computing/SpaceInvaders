@@ -31,6 +31,4 @@ public class Frame
     {
         eraseRects.add(rectangle);
     }
-    
-    
 }
