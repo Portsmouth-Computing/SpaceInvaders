@@ -14,21 +14,21 @@ import uni.Canvas;
  */
 public class Frame
 {
-    private ArrayList<Animation.Shape> shapes;
+    private ArrayList<Shapes.Shape> shapes;
     
     public Frame() 
     {
         shapes = new ArrayList<>();
     }
         
-    public void addShape(Animation.Shape shape)
+    public void addShape(Shapes.Shape shape)
     {
         shapes.add(shape);
     }
     
     public void drawFrame(Canvas canvas, double xOffset, double yOffset)
     {
-        for (Animation.Shape shape : shapes) {
+        for (Shapes.Shape shape : shapes) {
             shape.draw(canvas, xOffset, yOffset);
         }
     }
