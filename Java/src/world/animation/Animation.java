@@ -19,42 +19,14 @@ import uni.Canvas;
 public class Animation 
 {
 
-    
+    //The frames of the animation
     private ArrayList<Frame> frames;
     
     
     public Animation(String fileName) 
     {
-        frames = new ArrayList<>();
-        loadAnimation(fileName);
-    }
-    
-    private void loadAnimation(String fileName) 
-    {
-        try {
-            File file = new File(fileName);
-            FileReader reader = new FileReader(file);
-            BufferedReader buffReader = new BufferedReader(reader);
-            String line;
-            while ((line = buffReader.readLine()) != null) {
-                readLine(line);
-            }
-            reader.close();
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    private void readLine(String line) 
-    {
-        String[] tokens = line.split("\\s+");
-        String id = tokens[0];
-        
-    }
-    
-    private void loadRectangle(String[] tokens, boolean erase) 
-    {
-        
+        AnimationLoader loader = new AnimationLoader();
+        frames = loader.loadAnimation(fileName);
     }
     
     protected class Rectangle
