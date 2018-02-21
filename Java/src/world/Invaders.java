@@ -58,7 +58,6 @@ public class Invaders
         
         invaders = new ArrayList<>(50);
         leftPosition = Invader.WIDTH + Game.WIDTH / 4;
-        Random rand = new Random();
         for (int y = 0; y < ROWS; y++) {
             Animation animation = animations[y];
             for (int x = 0; x < COLUMNS; x++) {

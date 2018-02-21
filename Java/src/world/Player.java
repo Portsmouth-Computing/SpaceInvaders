@@ -41,6 +41,10 @@ public class Player
         velocity.x *= 0.93;
     }
     
+    /**
+     * Draws the player. Uses an animation based on the players current velocity
+     * @param canvas Canvas to draw onto
+     */
     public void draw(Canvas canvas) 
     {
         canvas.setForegroundColor(Color.GREEN);
