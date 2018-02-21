@@ -1,0 +1,82 @@
+FRAME
+//Top left
+R 0 0 5 5
+R 5 5 5 5
+R 10 10 5 5
+R 15 0 5 5
+R 20 5 5 5
+//Bottom right
+R 0 35 5 5
+R 5 30 5 5
+R 10 25 5 5
+R 15 35 5 5
+R 20 30 5 5
+//Top Right
+R 50 0 5 5
+R 45 5 5 5
+R 40 10 5 5
+R 35 0 5 5
+R 30 5 5 5
+//Bottom Right
+R 50 35 5 5
+R 45 30 5 5
+R 40 25 5 5
+R 35 35 5 5
+R 30 30 5 5
+//Ends
+R 42 17 13 5
+R 0  17 13 5
+ENDFRAME
+FRAME
+//Top left
+R 0 0 5 5
+R 5 5 5 5
+R 15 0 5 5
+R 20 5 5 5
+//Bottom right
+R 0 35 5 5
+R 5 30 5 5
+R 15 35 5 5
+R 20 30 5 5
+//Top Right
+R 50 0 5 5
+R 45 5 5 5
+R 35 0 5 5
+R 30 5 5 5
+//Bottom Right
+R 50 35 5 5
+R 45 30 5 5
+R 35 35 5 5
+R 30 30 5 5
+//Ends
+R 42 17 8 5
+R 0  17 8 5
+ENDFRAME
+FRAME
+//Top left
+R 0 0 5 5
+R 15 0 5 5
+//Bottom right
+R 0 35 5 5
+R 15 35 5 5
+//Top Right
+R 50 0 5 5
+R 35 0 5 5
+//Bottom Right
+R 50 35 5 5
+R 35 35 5 5
+//Ends
+R 42 17 4 5
+R 0  17 4 5
+ENDFRAME
+FRAME
+//Top left
+R 15 0 5 5
+//Bottom right
+R 15 35 5 5
+//Top Right
+R 35 0 5 5
+//Bottom Right
+R 35 35 5 5
+ENDFRAME
+END

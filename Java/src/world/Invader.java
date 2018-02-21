@@ -1,5 +1,6 @@
 package world;
 
+import java.util.Random;
 import uni.Canvas;
 import util.Timer;
 import world.animation.Animation;
@@ -22,7 +23,7 @@ public class Invader
     public Invader(Animation anim, Vector2D position)
     {
         box = new BoundingBox(WIDTH, HEIGHT, position.x, position.y);
-        renderer = new AnimationHandler(anim, 0.75f);
+        renderer = new AnimationHandler(anim, 0.65f);
     }
     
     /**

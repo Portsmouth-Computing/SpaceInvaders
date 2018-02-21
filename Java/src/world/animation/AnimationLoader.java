@@ -98,7 +98,6 @@ public class AnimationLoader
      */
     private void loadRectangle(String[] tokens, boolean erase) 
     {
-        System.out.println("yolo: " + erase);
         if (tokens.length < 5) {
             System.out.println("Unable to read rectangle not enough data!");
         }

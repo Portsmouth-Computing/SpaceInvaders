@@ -11,8 +11,11 @@ import main.Game;
 import uni.Canvas;
 import util.Pair;
 import util.Timer;
+import world.Explosion;
 import world.HitResult;
 import world.Projectile;
+import world.animation.Animation;
+import world.animation.AnimationHandler;
 
 /**
  * State for playing the game
@@ -21,7 +24,8 @@ import world.Projectile;
 public class PlayingState extends GameState 
 {
     private ArrayList<Projectile> worldProjectiles;
-    private ArrayList<Vector2D> explosionLocations;
+    private ArrayList<Explosion> explosions;
+    private Animation explosionAnimation;
     private Player player;
     private Invaders invaders;
     private Timer shootTimer;
@@ -30,6 +34,10 @@ public class PlayingState extends GameState
     {
         super(game);
         worldProjectiles = new ArrayList<>();
+        explosions = new ArrayList<>();
+        
+        explosionAnimation = new Animation("res/Explosion.txt");
+        
         player = new Player();
         invaders = new Invaders();
         shootTimer = new Timer();
@@ -78,6 +86,8 @@ public class PlayingState extends GameState
             worldProjectiles.add(newProjectile);
         }
         
+       
+        
         updateProjectiles();
     }
 
@@ -94,6 +104,17 @@ public class PlayingState extends GameState
         canvas.setForegroundColor(Color.RED);
         for(Projectile proj : worldProjectiles) {
             proj.draw(canvas);
+        }
+        
+        canvas.setForegroundColor(Color.WHITE);
+        Iterator<Explosion> itr = explosions.iterator();
+        while(itr.hasNext()) {
+            Explosion exp = itr.next();
+            if (exp.isLifetimeOver()) {
+                itr.remove();
+            } else {
+                exp.draw(canvas);
+            }
         }
     }
     
@@ -118,7 +139,7 @@ public class PlayingState extends GameState
                 HitResult res = invaders.invaderCollidesWithProjectile(proj);
                 if (res.getIsHit()) {
                     itr.remove();
-                    explosionLocations.add(res.getHitLocation());
+                    explosions.add(new Explosion(explosionAnimation, res.getHitLocation()));
                     continue;
                 }
             }

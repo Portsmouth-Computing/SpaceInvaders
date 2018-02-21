@@ -57,7 +57,7 @@ public class Invaders
         for (int y = 0; y < ROWS; y++) {
             Animation animation = animations[y];
             for (int x = 0; x < COLUMNS; x++) {
-                double xPos = x * Invader.WIDTH + x * 10 + Game.WIDTH / 4;
+                double xPos = x * Invader.WIDTH + x * 5 + Game.WIDTH / 4;
                 double yPos = y * Invader.HEIGHT + y * 20 + Game.HEIGHT / 10;
                 
                 invaders.add(new Invader(animation, new Vector2D(xPos, yPos)));
