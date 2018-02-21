@@ -53,6 +53,7 @@ public class AnimationLoader
             e.printStackTrace();
         }
         
+        System.out.println("Frames: " + frames.size());
         return frames;
     }
     
@@ -78,6 +79,12 @@ public class AnimationLoader
                     //loadPolygon(tokens, false);
                     break;
                     
+                case "ENDFRAME":
+                    loadingFrame = false;
+                    frames.add(currentFrame);
+                    currentFrame = null;
+                    break;
+                    
             }
         } else {
             if (id.equals("FRAME")) {
@@ -97,10 +104,15 @@ public class AnimationLoader
      */
     private void loadRectangle(String[] tokens, boolean erase) 
     {
-        System.out.println("Loading a rectangle");
-        for (String token : tokens) {
-            System.out.println("Token: " + token);
+        if (tokens.length < 5) {
+            System.out.println("Unable to read rectangle not enough data!");
         }
-        System.out.println("End loading a rectangle");
+        else {
+            int x = Integer.parseInt(tokens[1]);
+            int y = Integer.parseInt(tokens[2]);
+            int w = Integer.parseInt(tokens[2]);
+            int h = Integer.parseInt(tokens[2]);
+            currentFrame.addShape(new Shapes.Rectangle(x, y, w, h, erase));
+        }
     }
 }

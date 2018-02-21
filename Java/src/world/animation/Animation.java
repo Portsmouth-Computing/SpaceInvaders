@@ -29,56 +29,8 @@ public class Animation
         frames = loader.loadAnimation(fileName);
     }
     
-    protected abstract class Shape 
+    public void draw(Canvas c, double x, double y) 
     {
-        private boolean erase;
-        
-        Shape(boolean erase) 
-        {
-            this.erase = erase;
-        }
-        
-        public void draw(Canvas canvas, double xOffset, double yOffset) 
-        {
-            onDraw(canvas, xOffset, yOffset, erase);
-        }
-        
-        public abstract void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase);
-    }
-    
-    protected class Rectangle extends Shape
-    {
-        private double x, y, width, height;
-        
-        public Rectangle(double x, double y, double width, double height, boolean erase)
-        {
-            super(erase);
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
-        }
-        
-        public void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase)
-        {
-            if (!erase)
-                canvas.fillRectangle(x + xOffset, y + yOffset, width, height);
-            else 
-                canvas.eraseRectangle(x + xOffset, y + yOffset, width, height);
-        }
-    }
-    
-    protected class Polygon extends Shape
-    {
-        public Polygon(boolean erase)
-        {
-            super(erase);
-        }
-
-        @Override
-        public void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase) 
-        {
-            
-        }
+        frames.get(0).draw(c, x, y);
     }
 }

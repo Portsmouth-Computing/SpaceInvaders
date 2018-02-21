@@ -2,6 +2,7 @@ package world;
 
 import uni.Canvas;
 import util.Timer;
+import world.animation.Animation;
 
 /**
  * Represents an invader/ enemy of the game
@@ -9,6 +10,8 @@ import util.Timer;
  */
 public class Invader 
 {
+    Animation anim = new Animation("res/invader.txt");
+    
     public static final int WIDTH = 55;
     public static final int HEIGHT = 40;
     public boolean isAlive = true;
@@ -31,6 +34,9 @@ public class Invader
     public void draw(Canvas canvas)
     {
         if (isAlive) {
+            anim.draw(canvas, box.getX(), box.getY());
+            /*
+            
             if (animTimer.getTimeAsSeconds() > 0.75) {
                 tAnimFrame++;
                 animTimer.reset();
@@ -46,7 +52,7 @@ public class Invader
                 case 1:
                     drawFrame1(canvas);
                     break;
-            }
+            }*/
             
         }
     }

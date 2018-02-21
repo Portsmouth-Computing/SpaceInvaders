@@ -13,7 +13,7 @@ import uni.Canvas;
  */
 public class Shapes 
 {
-    protected abstract class Shape 
+    protected static abstract class Shape 
     {
         private final boolean erase;
         
@@ -30,7 +30,7 @@ public class Shapes
         public abstract void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase);
     }
     
-    protected class Rectangle extends Shape
+    protected static class Rectangle extends Shape
     {
         private double x, y, width, height;
         
@@ -60,7 +60,7 @@ public class Shapes
         }
     }
     
-    protected class Polygon extends Shape
+    protected static class Polygon extends Shape
     {
         public Polygon(boolean erase)
         {

@@ -62,7 +62,6 @@ public class Game
     
     public static void main(String... args) 
     {
-        Animation anim = new Animation("res/invader.txt");
         new Game().run();
     }
 }
