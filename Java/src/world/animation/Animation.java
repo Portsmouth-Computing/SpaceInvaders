@@ -29,19 +29,37 @@ public class Animation
         frames = loader.loadAnimation(fileName);
     }
     
-    protected class Rectangle
+    protected abstract class Shape 
+    {
+        private boolean erase;
+        
+        Shape(boolean erase) 
+        {
+            this.erase = erase;
+        }
+        
+        public void draw(Canvas canvas, double xOffset, double yOffset) 
+        {
+            onDraw(canvas, xOffset, yOffset, erase);
+        }
+        
+        public abstract void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase);
+    }
+    
+    protected class Rectangle extends Shape
     {
         private double x, y, width, height;
         
-        public Rectangle(double x, double y, double width, double height)
+        public Rectangle(double x, double y, double width, double height, boolean erase)
         {
+            super(erase);
             this.x = x;
             this.y = y;
             this.width = width;
             this.height = height;
         }
         
-        public void draw(Canvas canvas, double xOffset, double yOffset, boolean erase)
+        public void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase)
         {
             if (!erase)
                 canvas.fillRectangle(x + xOffset, y + yOffset, width, height);
@@ -50,9 +68,15 @@ public class Animation
         }
     }
     
-    protected class Polygon
+    protected class Polygon extends Shape
     {
-        public Polygon()
+        public Polygon(boolean erase)
+        {
+            super(erase);
+        }
+
+        @Override
+        public void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase) 
         {
             
         }

@@ -6,6 +6,7 @@
 package world.animation;
 
 import java.util.ArrayList;
+import uni.Canvas;
 
 /**
  *
@@ -13,22 +14,22 @@ import java.util.ArrayList;
  */
 public class Frame
 {
-    private ArrayList<Animation.Rectangle> fillRects;
-    private ArrayList<Animation.Rectangle> eraseRects;
+    private ArrayList<Animation.Shape> shapes;
     
     public Frame() 
     {
-        fillRects = new ArrayList<>();
-        eraseRects = new ArrayList<>();
+        shapes = new ArrayList<>();
     }
         
-    public void addFillRect(Animation.Rectangle rectangle)
+    public void addShape(Animation.Shape shape)
     {
-        fillRects.add(rectangle);
+        shapes.add(shape);
     }
     
-    public void addEraseRect(Animation.Rectangle rectangle)
+    public void drawFrame(Canvas canvas, double xOffset, double yOffset)
     {
-        eraseRects.add(rectangle);
+        for (Animation.Shape shape : shapes) {
+            shape.draw(canvas, xOffset, yOffset);
+        }
     }
 }
