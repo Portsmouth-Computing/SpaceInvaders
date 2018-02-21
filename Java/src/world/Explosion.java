@@ -2,7 +2,6 @@ package world;
 
 import uni.Canvas;
 import util.Timer;
-import world.animation.Animation;
 import world.animation.AnimationHandler;
 import world.animation.AnimationType;
 

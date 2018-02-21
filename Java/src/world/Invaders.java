@@ -24,7 +24,7 @@ public class Invaders
         RIGHT
     }
     
-    private final int ROWS = 4;
+    private final int ROWS = 5;
     private final int COLUMNS = 12;
     private final int MAX_INVADERS = ROWS * COLUMNS;
     
@@ -47,7 +47,8 @@ public class Invaders
             AnimationType.ENEMY_SQUID.get(), 
             AnimationType.ENEMY_SQUID.get(), 
             AnimationType.ENEMY_CLASSIC.get(), 
-            AnimationType.ENEMY_CLASSIC.get()
+            AnimationType.ENEMY_CLASSIC.get(),
+            AnimationType.ENEMY_SHELL.get()
         };
         random = new Random();
         leftPosition = 0;

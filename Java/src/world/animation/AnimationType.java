@@ -11,8 +11,9 @@ package world.animation;
  */
 public enum AnimationType 
 {
-    ENEMY_CLASSIC("res/Invader.txt"),
-    ENEMY_SQUID("res/Invader2.txt"),
+    ENEMY_CLASSIC("res/EnemyClassic.txt"),
+    ENEMY_SQUID("res/EnemySquid.txt"),
+    ENEMY_SHELL("res/EnemyShell.txt"),
     EXPLOSION("res/Explosion.txt"),
     ENEMY_PROJ("res/EnemyProj.txt"),
     PLAYER_LEFT("res/PlayerLeft.txt"),
