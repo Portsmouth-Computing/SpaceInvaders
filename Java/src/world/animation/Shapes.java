@@ -8,7 +8,7 @@ package world.animation;
 import uni.Canvas;
 
 /**
- *
+ * Bunch 
  * @author mhops
  */
 public class Shapes 
@@ -26,7 +26,7 @@ public class Shapes
         {
             onDraw(canvas, xOffset, yOffset, erase);
         }
-        
+       
         public abstract void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase);
     }
     
@@ -62,20 +62,23 @@ public class Shapes
     
     protected static class Polygon extends Shape
     {
-        public Polygon(boolean erase)
+        private double[] xPositions;
+        private double[] yPositions;
+        
+        public Polygon(double[] xPositions, double[] yPositions, boolean erase)
         {
             super(erase);
+            this.xPositions = xPositions;
+            this.yPositions = yPositions;
         }
 
         @Override
         public void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase) 
         {
-            /*
             if (!erase)
-                canvas.fillPolygon(...);
+                canvas.fillPolygon(xPositions, yPositions);
             else 
-                canvas.eraw(...);
-            */
+                canvas.erasePolygon(xPositions, yPositions);
         }
     }
 }

@@ -22,8 +22,8 @@ public class Invaders
         RIGHT
     }
     
-    private final int ROWS = 5;
-    private final int COLUMNS = 11;
+    private final int ROWS = 2;
+    private final int COLUMNS = 2;
     private final int MAX_INVADERS = ROWS * COLUMNS;
     
     private int aliveInvaders = MAX_INVADERS;

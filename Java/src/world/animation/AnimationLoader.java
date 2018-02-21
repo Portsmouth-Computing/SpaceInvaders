@@ -76,7 +76,7 @@ public class AnimationLoader
                     break;
                     
                 case "P":
-                    //loadPolygon(tokens, false);
+                    loadPolygon(tokens, false);
                     break;
                     
                 case "ENDFRAME":
@@ -108,11 +108,28 @@ public class AnimationLoader
             System.out.println("Unable to read rectangle not enough data!");
         }
         else {
-            int x = Integer.parseInt(tokens[1]);
-            int y = Integer.parseInt(tokens[2]);
-            int w = Integer.parseInt(tokens[2]);
-            int h = Integer.parseInt(tokens[2]);
+            double x = Double.parseDouble(tokens[1]);
+            double y = Double.parseDouble(tokens[2]);
+            double w = Double.parseDouble(tokens[3]);
+            double h = Double.parseDouble(tokens[4]);
             currentFrame.addShape(new Shapes.Rectangle(x, y, w, h, erase));
+        }
+    }
+    
+    private void loadPolygon(String[] tokens, boolean erase) 
+    {
+        if (tokens.length % 2 == 0) {
+            System.out.println("Unable to load polygon, mismatch of X and Y data");
+        }
+        else {
+            int numPoints = (tokens.length - 1) / 2;
+            double[] xPoints = new double[numPoints];
+            double[] yPoints = new double[numPoints];
+            for (int i = 1, point = 0; i < tokens.length; i += 2, point++) {
+                xPoints[point] = Double.parseDouble(tokens[i]);
+                yPoints[point] = Double.parseDouble(tokens[i + 1]);
+            }
+            currentFrame.addShape(new Shapes.Polygon(xPoints, yPoints, erase));
         }
     }
 }
