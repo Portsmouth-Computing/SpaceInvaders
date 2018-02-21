@@ -9,13 +9,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import main.Game;
 import uni.Canvas;
-import util.Pair;
 import util.Timer;
 import world.Explosion;
 import world.HitResult;
 import world.Projectile;
 import world.animation.Animation;
-import world.animation.AnimationHandler;
 
 /**
  * State for playing the game
@@ -25,7 +23,6 @@ public class PlayingState extends GameState
 {
     private ArrayList<Projectile> worldProjectiles;
     private ArrayList<Explosion> explosions;
-    private Animation explosionAnimation;
     private Player player;
     private Invaders invaders;
     private Timer shootTimer;
@@ -35,9 +32,6 @@ public class PlayingState extends GameState
         super(game);
         worldProjectiles = new ArrayList<>();
         explosions = new ArrayList<>();
-        
-        explosionAnimation = new Animation("res/Explosion.txt");
-        
         player = new Player();
         invaders = new Invaders();
         shootTimer = new Timer();
@@ -139,7 +133,7 @@ public class PlayingState extends GameState
                 HitResult res = invaders.invaderCollidesWithProjectile(proj);
                 if (res.getIsHit()) {
                     itr.remove();
-                    explosions.add(new Explosion(explosionAnimation, res.getHitLocation()));
+                    explosions.add(new Explosion(res.getHitLocation()));
                     continue;
                 }
             }

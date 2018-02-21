@@ -7,6 +7,7 @@ import java.util.Random;
 import main.Game;
 import uni.Canvas;
 import world.animation.Animation;
+import world.animation.AnimationType;
 
 /**
  * Class to manage the invaders/ enemies of the game
@@ -42,9 +43,12 @@ public class Invaders
      */
     public Invaders()
     {
-        Animation classic = new Animation("res/Invader.txt");
-        Animation squid   = new Animation("res/Invader2.txt");
-        Animation[] animations = { squid, squid, classic, classic };
+        Animation[] animations = { 
+            AnimationType.ENEMY_SQUID.get(), 
+            AnimationType.ENEMY_SQUID.get(), 
+            AnimationType.ENEMY_CLASSIC.get(), 
+            AnimationType.ENEMY_CLASSIC.get()
+        };
         random = new Random();
         leftPosition = 0;
         rightPosition = 0;

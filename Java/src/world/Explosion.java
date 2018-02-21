@@ -4,6 +4,7 @@ import uni.Canvas;
 import util.Timer;
 import world.animation.Animation;
 import world.animation.AnimationHandler;
+import world.animation.AnimationType;
 
 /**
  * Class to represent an explosion, which happens when an enemy dies
@@ -15,11 +16,11 @@ public class Explosion
     private Timer    lifeTimer;
     private AnimationHandler animHandle;
     
-    public Explosion(Animation anim, Vector2D expPosition)
+    public Explosion(Vector2D expPosition)
     {
         lifeTimer = new Timer();
         position = expPosition;
-        animHandle = new AnimationHandler(anim, 0.05f);
+        animHandle = new AnimationHandler(AnimationType.EXPLOSION.get(), 0.05f);
     }
     
     /**
