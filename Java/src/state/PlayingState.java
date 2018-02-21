@@ -61,7 +61,10 @@ public class PlayingState extends GameState
     {
         if (shootTimer.getTimeAsSeconds() >= 0.5) {
              if (key == KeyEvent.VK_SPACE) {
-                 worldProjectiles.add(new Projectile(player.getPosition(), -10));
+                 double x = player.getPosition().x + Player.WIDTH / 2 - 
+                            Projectile.WIDTH / 2;
+                 double y = player.getPosition().y + 10;
+                 worldProjectiles.add(new Projectile(new Vector2D(x, y), -10));
              }
              shootTimer.reset();
         }

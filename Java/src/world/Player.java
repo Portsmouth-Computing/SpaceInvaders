@@ -2,6 +2,8 @@ package world;
 
 import java.awt.Color;
 import uni.Canvas;
+import world.animation.AnimationHandler;
+import world.animation.AnimationType;
 
 /**
  *
@@ -9,12 +11,16 @@ import uni.Canvas;
  */
 public class Player 
 {  
+    public static final int WIDTH = 55;
+    
+    AnimationHandler renderer;
     BoundingBox box;
     Vector2D velocity;
     
     public Player()
     {
-        box = new BoundingBox(30, 30, 500, 675);
+        renderer = new AnimationHandler(AnimationType.PLAYER.get(), 0.1f);
+        box = new BoundingBox(55, 40, 500, 675);
         velocity = new Vector2D();
     }
     
@@ -32,7 +38,7 @@ public class Player
     public void draw(Canvas canvas) 
     {
         canvas.setForegroundColor(Color.GREEN);
-        canvas.fillRectangle(box.getX(), box.getY(), 30, 30);
+        renderer.draw(canvas, box.getX(), box.getY());
     }
     
     public Vector2D getPosition() 
