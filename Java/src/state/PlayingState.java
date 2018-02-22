@@ -37,6 +37,12 @@ public class PlayingState extends GameState
         shootTimer = new Timer();
     }
     
+    @Override
+    public void handleMouseClick(int button, Vector2D location) 
+    {
+        System.out.println("Mouse clicked: " + location.x + " " + location.y);
+    }
+    
     /**
      * Handles the real time keyboard input
      * @param key The key being pressed

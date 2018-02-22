@@ -3,6 +3,7 @@ package uni;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
 import java.awt.geom.*;
 
 /**
@@ -71,6 +72,11 @@ public class Canvas
     public void addKeyListener(KeyListener listener) 
     {
         frame.addKeyListener(listener);
+    }
+    
+    public void addMouseListener(MouseAdapter listener) 
+    {
+        frame.addMouseListener(listener);
     }
 
     /**

@@ -3,6 +3,7 @@ package state;
 import java.awt.event.KeyEvent;
 import main.Game;
 import uni.Canvas;
+import world.Vector2D;
 
 /**
  * Base game state class
@@ -17,6 +18,7 @@ public abstract class GameState
         this.game = game;
     }
   
+    public abstract void handleMouseClick(int button, Vector2D location);
     public abstract void handleKeyPress(int key);
     public abstract void handleKeyUp(int key);
     public abstract void update();

@@ -26,6 +26,7 @@ public class Game
         states = new StateManager(new PlayingState(this));
         canvas = new Canvas("Space Invaders", WIDTH, HEIGHT, Color.BLACK);
         canvas.addKeyListener(new Keyboard(states));
+        canvas.addMouseListener(new Mouse(states));
         
         isRunning = true;
     }
