@@ -176,7 +176,7 @@ public class Invaders
         //Calculate the speed to move
         double speedFactor = (1.0 / aliveInvaders) * 10;
         double s = ((double)MAX_INVADERS / 7.5) * speedFactor;
-        s = Math.min(Math.max(s, 1), 5) / 2.0;
+        s = Math.min(Math.max(s, 1), 7.5) / 2.0;
         
         return invaderDirection == Direction.LEFT ? -s : s;
     }

@@ -2,6 +2,7 @@ package main;
 
 import java.awt.Color;
 import state.GameState;
+import state.MainMenuState;
 import state.PlayingState;
 import uni.Canvas;
 import world.animation.Animation;
