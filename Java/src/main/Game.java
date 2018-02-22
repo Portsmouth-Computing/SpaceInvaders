@@ -31,7 +31,7 @@ public class Game
     }
     
     /**
-     * Runs the main game loop
+     * Runs the main game loop until the game is over
      */
     public void run()
     {

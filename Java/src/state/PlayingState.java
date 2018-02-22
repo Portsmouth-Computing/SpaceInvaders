@@ -59,7 +59,8 @@ public class PlayingState extends GameState
     @Override
     public void handleKeyUp(int key) 
     {
-        if (shootTimer.getTimeAsSeconds() >= 0.5) {
+        //Tries to shoot from the player's position
+        if (shootTimer.getTimeAsSeconds() >= 0.4) {
              if (key == KeyEvent.VK_SPACE) {
                  double x = player.getPosition().x + Player.WIDTH / 2 - 
                             Projectile.WIDTH / 2;
