@@ -65,7 +65,6 @@ public class AnimationLoader
                     break;
                     
                 case "ER":
-
                     loadRectangle(tokens, true);
                     break;
                     

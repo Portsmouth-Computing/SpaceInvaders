@@ -44,6 +44,7 @@ public class Game
             state.draw(canvas);
             canvas.wait(16);
         }
+        System.out.println("Game ended");
     }
     
     /**

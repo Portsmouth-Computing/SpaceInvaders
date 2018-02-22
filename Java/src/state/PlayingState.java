@@ -1,19 +1,18 @@
 package state;
 
 import java.awt.Color;
-import world.Invaders;
-import world.Player;
-import world.Vector2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Iterator;
-import main.Game;
 import uni.Canvas;
+import main.Game;
 import util.Timer;
+import world.Invaders;
+import world.Player;
 import world.Explosion;
 import world.HitResult;
 import world.Projectile;
-import world.animation.Animation;
+import world.Vector2D;
 
 /**
  * State for playing the game
@@ -66,7 +65,7 @@ public class PlayingState extends GameState
     public void handleKeyUp(int key) 
     {
         //Tries to shoot from the player's position
-        if (shootTimer.getTimeAsSeconds() >= 0.4) {
+        if (shootTimer.getTimeAsSeconds() >= 0.01) {
              if (key == KeyEvent.VK_SPACE) {
                  double x = player.getPosition().x + Player.WIDTH / 2 - 
                             Projectile.WIDTH / 2;
@@ -106,9 +105,9 @@ public class PlayingState extends GameState
         invaders.draw(canvas);
         
         canvas.setForegroundColor(Color.RED);
-        for(Projectile proj : worldProjectiles) {
+        worldProjectiles.forEach((proj) -> {
             proj.draw(canvas);
-        }
+        });
         
         canvas.setForegroundColor(Color.WHITE);
         Iterator<Explosion> itr = explosions.iterator();
