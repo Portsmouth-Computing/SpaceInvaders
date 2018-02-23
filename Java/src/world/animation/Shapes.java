@@ -4,11 +4,14 @@ package world.animation;
 import uni.Canvas;
 
 /**
- * Bunch 
+ * Bunch of shapes for animation
  * @author mhops
  */
 public class Shapes 
 {
+    /**
+     * Superclass of the shapes
+     */
     protected static abstract class Shape 
     {
         private final boolean erase;
@@ -26,6 +29,9 @@ public class Shapes
         public abstract void onDraw(Canvas canvas, double xOffset, double yOffset, boolean erase);
     }
     
+    /**
+     * Represents a rectangle 
+     */
     protected static class Rectangle extends Shape
     {
         private double x, y, width, height;
@@ -56,6 +62,9 @@ public class Shapes
         }
     }
     
+    /**
+     * Represents a polygon
+     */
     protected static class Polygon extends Shape
     {
         private double[] xPositions;

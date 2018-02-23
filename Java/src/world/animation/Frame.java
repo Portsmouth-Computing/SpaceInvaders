@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import uni.Canvas;
 
 /**
- *
+ * Class to represent a single frame of an animation
  * @author mhops
  */
 public class Frame

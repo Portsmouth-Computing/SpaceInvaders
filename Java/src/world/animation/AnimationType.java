@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package world.animation;
 
 /**
- *
+ * Enum to hold the different animation types of the game
  * @author mhops
  */
 public enum AnimationType 
