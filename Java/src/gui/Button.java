@@ -5,6 +5,7 @@
  */
 package gui;
 
+import uni.Canvas;
 import world.BoundingBox;
 import world.Vector2D;
 
@@ -14,20 +15,26 @@ import world.Vector2D;
  */
 public class Button 
 {
-    ButtonCallback funcion;
+    ButtonCallback function;
     BoundingBox bounds;
     String text;
     
     public Button(int x, int y, int width, int height, String text, ButtonCallback function)
     {
-        this.bounds = new BoundingBox(x, y, width, height);
+        this.bounds = new BoundingBox(width, height, x, y);
         this.text = text;
-        this.funcion = function;
+        this.function = function;
     }
     
-    public boolean clicked(Vector2D pos)
+    public void update(Vector2D pos)
     {
-        funcion.function();
-        return false;
+        if (bounds.containsPoint(pos)){
+            function.function();
+        }
+    }
+    
+    public void draw(Canvas canvas) 
+    {
+        canvas.fillRectangle(bounds.getX(), bounds.getY(), bounds.getWidth(), bounds.getHeight());
     }
 }

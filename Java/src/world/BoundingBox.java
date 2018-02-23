@@ -82,4 +82,18 @@ public class BoundingBox
                 x + width   > other.x &&
                 y + height  > other.y;
     }
+    
+    /**
+     * Checks if the box contains a point coordinate
+     * @param point The point to check is inside the box
+     * @return True if the point passed in is inside the box
+     */
+    public boolean containsPoint(Vector2D point) 
+    {
+        return point.x > x &&
+               point.y > y &&
+               point.x < x + width &&
+               point.y < y + height;
+                      
+    }
 }
