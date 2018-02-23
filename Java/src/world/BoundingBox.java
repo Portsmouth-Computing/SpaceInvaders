@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package world;
 
 /**
- *
+ * Class to represent a box which has a 2D position, a width, and a height
  * @author mhops
  */
 public class BoundingBox 
@@ -16,6 +12,13 @@ public class BoundingBox
                    x,
                    y;
     
+    /**
+     * Constructs the bounding box
+     * @param width Width of the box
+     * @param height Height of the box
+     * @param x initial X Position of the box top left point
+     * @param y initial Y Position of the box top left point
+     */
     public BoundingBox(double width, double height, double x, double y) 
     {
         this.width = width;
@@ -24,6 +27,7 @@ public class BoundingBox
         this.y = y;
     }
     
+    //Getters
     public double getX()
     {
         return x;
@@ -44,18 +48,33 @@ public class BoundingBox
         return height;
     }
     
+    /**
+     * Moves the box
+     * @param xOffset Amount to move box by in X-Direction
+     * @param yOffset Amount to move box by in Y-Direction
+     */
     public void movePosition(double xOffset, double yOffset)
     {
         x += xOffset;
         y += yOffset;
     }
     
+    /**
+     * Sets a new position for the box to be
+     * @param newX The new x-coordinate of the box top left
+     * @param newY The new y-coordinate of the box top left
+     */
     public void updatePosition(double newX, double newY)
     {
         x = newX;
         y = newY;
     }
     
+    /**
+     * Checks if the box is intersecting another box
+     * @param other The other box to check collisions with
+     * @return True if the two boxes are colliding
+     */
     public boolean isColliding(BoundingBox other) 
     {
         return  x < other.x + other.width &&

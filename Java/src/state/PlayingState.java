@@ -89,8 +89,6 @@ public class PlayingState extends GameState
             worldProjectiles.add(newProjectile);
         }
         
-       
-        
         updateProjectiles();
     }
 
