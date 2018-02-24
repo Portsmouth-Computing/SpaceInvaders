@@ -16,12 +16,13 @@ public class Player
 {  
     public static final int WIDTH = 55, HEIGHT = 50;
     
+    
     AnimationHandler lastUsed;
     AnimationHandler leftAnim;
     AnimationHandler rightAnim;
     BoundingBox box;
     Vector2D velocity;
-    
+
     public Player()
     {
         leftAnim = new AnimationHandler(AnimationType.PLAYER_LEFT.get(), 0.1f);

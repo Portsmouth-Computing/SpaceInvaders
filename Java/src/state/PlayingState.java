@@ -148,6 +148,7 @@ public class PlayingState extends GameState
             if (proj.isTargetingPlayer()) {
                 if (player.getBox().isColliding(proj.getBox())) {
                     itr.remove();
+                    continue;
                 }
             } else {
                 HitResult invRes = invaders.invaderCollidesWithProjectile(proj);

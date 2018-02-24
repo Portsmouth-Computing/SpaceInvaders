@@ -107,7 +107,8 @@ public class Invaders
      */
     public Projectile tryShoot() 
     {
-        if (random.nextInt(75) < 1) {
+        if (random.nextInt(30) < 1) {
+            
             Vector2D shootPoint = getRandomLowestInvaderPosition();
             return new Projectile(shootPoint, 3);
         }
