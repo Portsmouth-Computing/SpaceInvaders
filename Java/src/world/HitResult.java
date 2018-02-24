@@ -1,5 +1,7 @@
 package world;
 
+import util.Vector2D;
+
 /**
  * Class to hold the result of an enemy getting hit
  * @author mhops

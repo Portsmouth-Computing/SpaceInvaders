@@ -1,4 +1,4 @@
-package world;
+package util;
 
 /**
  *
@@ -20,13 +20,13 @@ public class Vector2D
         this.y = y;
     }
         
-    void add(Vector2D other) 
+    public void add(Vector2D other) 
     {
         this.x += other.x;
         this.y += other.y;
     }
     
-    Vector2D copy()
+    public Vector2D copy()
     {
         return new Vector2D(x, y);
     }

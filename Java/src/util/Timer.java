@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class Timer 
 {
-    long startTime;
+    private long startTime;
     
     public Timer() 
     {

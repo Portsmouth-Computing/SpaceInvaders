@@ -1,5 +1,6 @@
 package world;
 
+import util.Vector2D;
 import uni.Canvas;
 import util.Timer;
 import renderer.AnimationHandler;

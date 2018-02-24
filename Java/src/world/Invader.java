@@ -1,5 +1,7 @@
 package world;
 
+import util.Vector2D;
+import util.BoundingBox;
 import java.util.Random;
 import uni.Canvas;
 import util.Timer;

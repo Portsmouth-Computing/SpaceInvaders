@@ -1,5 +1,7 @@
 package world;
 
+import util.Vector2D;
+import util.BoundingBox;
 import java.awt.Color;
 import main.Game;
 import uni.Canvas;

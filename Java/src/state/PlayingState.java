@@ -12,7 +12,7 @@ import world.Player;
 import world.Explosion;
 import world.HitResult;
 import world.Projectile;
-import world.Vector2D;
+import util.Vector2D;
 
 /**
  * State for playing the game

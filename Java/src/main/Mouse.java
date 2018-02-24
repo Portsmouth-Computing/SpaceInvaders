@@ -2,7 +2,7 @@ package main;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import world.Vector2D;
+import util.Vector2D;
 
 /**
  *

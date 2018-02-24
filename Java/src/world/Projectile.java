@@ -1,5 +1,7 @@
 package world;
 
+import util.Vector2D;
+import util.BoundingBox;
 import main.Game;
 import uni.Canvas;
 import renderer.AnimationHandler;

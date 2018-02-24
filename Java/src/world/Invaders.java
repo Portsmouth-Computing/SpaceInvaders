@@ -1,5 +1,6 @@
 package world;
 
+import util.Vector2D;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;

@@ -1,9 +1,8 @@
 package state;
 
-import java.awt.event.KeyEvent;
 import main.Game;
 import uni.Canvas;
-import world.Vector2D;
+import util.Vector2D;
 
 /**
  * Base game state class

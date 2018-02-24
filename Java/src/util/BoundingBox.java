@@ -1,4 +1,4 @@
-package world;
+package util;
 
 /**
  * Class to represent a box which has a 2D position, a width, and a height

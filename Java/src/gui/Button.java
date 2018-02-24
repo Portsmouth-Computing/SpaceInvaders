@@ -1,8 +1,8 @@
 package gui;
 
 import uni.Canvas;
-import world.BoundingBox;
-import world.Vector2D;
+import util.BoundingBox;
+import util.Vector2D;
 
 /**
  *

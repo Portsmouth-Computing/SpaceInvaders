@@ -1,6 +1,6 @@
 package gui;
 
-import world.BoundingBox;
+import util.BoundingBox;
 
 /**
  *
