@@ -8,6 +8,7 @@ import util.Vector2D;
  */
 public class HitResult 
 {
+    public static final HitResult FAIL = new HitResult(false, null);
     private final boolean isHit;
     private final Vector2D location;
     

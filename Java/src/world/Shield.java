@@ -54,14 +54,14 @@ public class Shield
         {
             if (box.isColliding(projectile.getBox())) {
                 hit();
-                double x = projectile.getBox().getX() + Projectile.WIDTH / 2;
+                double x = box.getX();
                 double y = projectile.getBox().getY();
                 if (projectile.isTargetingPlayer()) {
                    box.movePosition(0, HEIGHT / MAX_HEALTH);
                 }
                 return new HitResult(true, new Vector2D(x, y));
             } else {
-                return new HitResult(false, null);
+                return HitResult.FAIL;
             }
         }
     }
@@ -96,6 +96,6 @@ public class Shield
                 return r;
             }
         }        
-        return new HitResult(false, null);
+        return HitResult.FAIL;
     }
 }

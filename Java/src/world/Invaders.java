@@ -142,7 +142,7 @@ public class Invaders
                 }
             }
         }
-        return new HitResult(false, null);
+        return HitResult.FAIL;
     }
     
     /**
