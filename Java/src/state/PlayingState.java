@@ -23,20 +23,25 @@ public class PlayingState extends GameState
 {
     private ArrayList<Projectile> worldProjectiles;
     private ArrayList<Explosion> explosions;
+    private ArrayList<Shield> shields;
     private Player player;
     private Invaders invaders;
     private Timer shootTimer;
-    private Shield shield;
     
     public PlayingState(Game game) 
     {
         super(game);
         worldProjectiles = new ArrayList<>();
         explosions = new ArrayList<>();
+        shields = new ArrayList<>();
         player = new Player();
         invaders = new Invaders();
         shootTimer = new Timer();
-        shield = new Shield(500);
+        
+        for (int i = 0; i < 3; i++) 
+        {
+            shields.add(new Shield(i * Game.WIDTH / 3 + 100));
+        }
     }
     
     @Override
@@ -104,7 +109,11 @@ public class PlayingState extends GameState
     {
         player.draw(canvas);
         invaders.draw(canvas);
-        shield.draw(canvas);
+        
+        canvas.setForegroundColor(Color.GRAY);
+        shields.forEach((shield) -> {
+            shield.draw(canvas);
+        });
         
         canvas.setForegroundColor(Color.RED);
         worldProjectiles.forEach((proj) -> {
@@ -149,7 +158,7 @@ public class PlayingState extends GameState
                     continue;
                 }
             }
-            HitResult shiRes = shield.collidingProjectile(proj);
+            HitResult shiRes = collideProjectileWithShield(proj);
             if (shiRes.getIsHit()) {
                 itr.remove();
                 explosions.add(new Explosion(shiRes.getHitLocation()));
@@ -159,5 +168,16 @@ public class PlayingState extends GameState
                 itr.remove();
             }
         }
+    }
+    
+    private HitResult collideProjectileWithShield(Projectile proj)
+    {
+        for (Shield shield : shields) {
+            HitResult r = shield.collidingProjectile(proj);
+            if (r.getIsHit()) {
+                return r;
+            }
+        }
+        return new HitResult(false, null);
     }
 }

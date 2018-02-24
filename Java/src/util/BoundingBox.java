@@ -47,6 +47,16 @@ public class BoundingBox
         return height;
     }
     
+    public void setWidth(double newWidth) 
+    {
+        width = newWidth;
+    }
+    
+    public void setHeight(double newheight)
+    {
+        height = newheight;
+    }
+    
     /**
      * Moves the box
      * @param xOffset Amount to move box by in X-Direction

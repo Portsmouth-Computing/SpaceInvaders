@@ -13,8 +13,6 @@ import renderer.AnimationType;
  */
 public class Projectile 
 {
-    
-    
     public static final int HEIGHT = 35;
     public static final int WIDTH  = 15;
     private double ySpeed;
