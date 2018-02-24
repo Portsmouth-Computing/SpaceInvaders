@@ -1,4 +1,3 @@
-
 package world.animation;
 
 import uni.Canvas;

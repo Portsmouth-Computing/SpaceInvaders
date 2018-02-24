@@ -68,6 +68,10 @@ public class Game
         isRunning = false;
     }
     
+    /**
+     * Entry point of program
+     * @param args Command line arguments [not used]
+     */
     public static void main(String... args) 
     {
         new Game().run();
