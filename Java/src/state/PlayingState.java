@@ -13,6 +13,7 @@ import world.Explosion;
 import world.HitResult;
 import world.Projectile;
 import util.Vector2D;
+import world.Shield;
 
 /**
  * State for playing the game
@@ -25,6 +26,7 @@ public class PlayingState extends GameState
     private Player player;
     private Invaders invaders;
     private Timer shootTimer;
+    private Shield shield;
     
     public PlayingState(Game game) 
     {
@@ -34,6 +36,7 @@ public class PlayingState extends GameState
         player = new Player();
         invaders = new Invaders();
         shootTimer = new Timer();
+        shield = new Shield(500);
     }
     
     @Override
@@ -101,6 +104,7 @@ public class PlayingState extends GameState
     {
         player.draw(canvas);
         invaders.draw(canvas);
+        shield.draw(canvas);
         
         canvas.setForegroundColor(Color.RED);
         worldProjectiles.forEach((proj) -> {
@@ -137,14 +141,20 @@ public class PlayingState extends GameState
                     itr.remove();
                 }
             } else {
-                HitResult res = invaders.invaderCollidesWithProjectile(proj);
-                if (res.getIsHit()) {
+                HitResult invRes = invaders.invaderCollidesWithProjectile(proj);
+                
+                if (invRes.getIsHit()) {
                     itr.remove();
-                    explosions.add(new Explosion(res.getHitLocation()));
+                    explosions.add(new Explosion(invRes.getHitLocation()));
                     continue;
                 }
             }
-            
+            HitResult shiRes = shield.collidingProjectile(proj);
+            if (shiRes.getIsHit()) {
+                itr.remove();
+                explosions.add(new Explosion(shiRes.getHitLocation()));
+                continue;
+            }
             if (proj.shouldBeRemoved()) {
                 itr.remove();
             }

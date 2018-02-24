@@ -28,7 +28,7 @@ public class Shield
         return box;
     }
     
-    public void hit()
+    private void hit()
     {
         health--;
     }
@@ -42,6 +42,18 @@ public class Shield
     {
         int h = HEIGHT - ((MAX_HEALTH - health) * HEIGHT / MAX_HEALTH);
         
-        canvas.fillRectangle(box.getX(), box.getY(), WIDTH, h)
+        canvas.fillRectangle(box.getX(), box.getY(), WIDTH, h);
+    }
+    
+    public HitResult collidingProjectile(Projectile projectile)
+    {
+        if (box.isColliding(projectile.getBox())) {
+            System.out.println("hit");
+            hit();
+            return new HitResult(true, projectile.getBox().getPosition());
+        } else {
+            return new HitResult(false, null);
+        }
+                
     }
 }

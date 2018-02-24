@@ -95,4 +95,9 @@ public class BoundingBox
                point.y < y + height;
                       
     }
+    
+    public Vector2D getPosition()
+    {
+        return new Vector2D(x, y);
+    }
 }
