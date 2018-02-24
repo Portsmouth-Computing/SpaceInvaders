@@ -1,5 +1,6 @@
 package world;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import main.Game;
 import uni.Canvas;
@@ -12,6 +13,63 @@ import util.Vector2D;
  */
 public class Shield 
 { 
+    private final static int WIDTH = 200;
+    private final static int NUM_SECTIONS = WIDTH / ShieldSection.WIDTH;
+    private final static int MAX_ACC_HEALTH = NUM_SECTIONS * ShieldSection.MAX_HEALTH;
+    
+    private ArrayList<ShieldSection> sheildSections;
+    private int health;
+    private Color healthColour;
+    
+    public Shield(int xPosition) 
+    {
+        sheildSections = new ArrayList<>(NUM_SECTIONS);
+        for (int i = 0; i < NUM_SECTIONS; i++) {
+            sheildSections.add(
+                    new ShieldSection(xPosition + i * ShieldSection.WIDTH));
+        }
+        health = MAX_ACC_HEALTH;
+        calculateNewColourBasedOnHealth();
+    }
+    
+    
+    public void draw(Canvas canvas)
+    {
+        canvas.setForegroundColor(healthColour);
+        for (ShieldSection section : sheildSections) {
+            section.draw(canvas);
+        }
+    }
+    
+    private void calculateNewColourBasedOnHealth()
+    {
+        double factor = (double)health / (double)MAX_ACC_HEALTH;
+        double colour = factor * 255.0;
+        healthColour = new Color((int)colour, (int)colour, (int)colour);
+    }
+    
+    private void hit()
+    {
+        health--;
+        calculateNewColourBasedOnHealth();
+    }
+    
+    public HitResult collidingProjectile(Projectile projectile)
+    {
+        for (ShieldSection section : sheildSections) {
+            if (section.isDestroyed()) continue;
+            HitResult r = section.collidingProjectile(projectile);
+            if (r.getIsHit()) {
+                hit();
+                return r;
+            }
+        }        
+        return HitResult.FAIL;
+    }
+    
+    /**
+     *  Represents a "slice" of the whole shield
+     */
     private class ShieldSection
     {
         public final static int HEIGHT = 100;
@@ -64,38 +122,5 @@ public class Shield
                 return HitResult.FAIL;
             }
         }
-    }
-
-    private final static int WIDTH = 200;
-    private final static int NUM_SECTIONS = WIDTH / ShieldSection.WIDTH;
-    private ArrayList<ShieldSection> sheildSections;
-    
-    public Shield(int xPosition) 
-    {
-        sheildSections = new ArrayList<>(NUM_SECTIONS);
-        for (int i = 0; i < NUM_SECTIONS; i++) {
-            sheildSections.add(
-                    new ShieldSection(xPosition + i * ShieldSection.WIDTH));
-        }
-    }
-    
-    
-    public void draw(Canvas canvas)
-    {
-        for (ShieldSection section : sheildSections) {
-            section.draw(canvas);
-        }
-    }
-    
-    public HitResult collidingProjectile(Projectile projectile)
-    {
-        for (ShieldSection section : sheildSections) {
-            if (section.isDestroyed()) continue;
-            HitResult r = section.collidingProjectile(projectile);
-            if (r.getIsHit()) {
-                return r;
-            }
-        }        
-        return HitResult.FAIL;
     }
 }
