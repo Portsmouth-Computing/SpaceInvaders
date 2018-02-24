@@ -28,7 +28,7 @@ public class MainMenuState extends GameState
             @Override
             public void function()
             {
-                System.out.println("Button pressed");
+                game.getStates().pushState(new PlayingState(game));
             }
         });
     }
@@ -37,7 +37,7 @@ public class MainMenuState extends GameState
     public void handleMouseClick(int button, Vector2D location) 
     {
         System.out.println(button);
-        this.button.update(location);
+        this.button.onClick(location);
     }
 
     @Override

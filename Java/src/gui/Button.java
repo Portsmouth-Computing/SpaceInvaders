@@ -26,7 +26,7 @@ public class Button
         this.function = function;
     }
     
-    public void update(Vector2D pos)
+    public void onClick(Vector2D pos)
     {
         if (bounds.containsPoint(pos)){
             function.function();

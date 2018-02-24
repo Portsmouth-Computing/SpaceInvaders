@@ -55,6 +55,11 @@ public class Game
         canvas.eraseRectangle(0, 0, WIDTH, HEIGHT);
     }
     
+    public StateManager getStates()
+    {
+        return states;
+    }
+    
     /**
      * Stops the game running
      */

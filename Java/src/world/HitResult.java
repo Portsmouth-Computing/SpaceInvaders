@@ -1,13 +1,13 @@
 package world;
 
 /**
- *
+ * Class to hold the result of an enemy getting hit
  * @author mhops
  */
 public class HitResult 
 {
-    private boolean isHit;
-    private Vector2D location;
+    private final boolean isHit;
+    private final Vector2D location;
     
     public HitResult(boolean isHit, Vector2D position)
     {
