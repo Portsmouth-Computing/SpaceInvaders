@@ -3,8 +3,8 @@ package world;
 import java.awt.Color;
 import main.Game;
 import uni.Canvas;
-import world.animation.AnimationHandler;
-import world.animation.AnimationType;
+import renderer.AnimationHandler;
+import renderer.AnimationType;
 
 /**
  *

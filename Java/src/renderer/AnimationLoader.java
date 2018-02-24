@@ -1,4 +1,4 @@
-package world.animation;
+package renderer;
 
 import java.io.BufferedReader;
 import java.io.File;

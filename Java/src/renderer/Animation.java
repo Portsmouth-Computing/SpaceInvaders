@@ -1,4 +1,4 @@
-package world.animation;
+package renderer;
 
 import java.util.ArrayList;
 import uni.Canvas;

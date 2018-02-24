@@ -5,7 +5,7 @@ import state.GameState;
 import state.MainMenuState;
 import state.PlayingState;
 import uni.Canvas;
-import world.animation.Animation;
+import renderer.Animation;
 /**
  * The main class for the game
  * @author mhops

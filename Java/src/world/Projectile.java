@@ -2,8 +2,8 @@ package world;
 
 import main.Game;
 import uni.Canvas;
-import world.animation.AnimationHandler;
-import world.animation.AnimationType;
+import renderer.AnimationHandler;
+import renderer.AnimationType;
 
 /**
  * Represents a projectile in the world

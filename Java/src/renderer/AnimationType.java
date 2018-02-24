@@ -1,4 +1,4 @@
-package world.animation;
+package renderer;
 
 /**
  * Enumerated to hold the different animation types of the game

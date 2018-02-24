@@ -1,4 +1,4 @@
-package world.animation;
+package renderer;
 
 import uni.Canvas;
 import util.Timer;

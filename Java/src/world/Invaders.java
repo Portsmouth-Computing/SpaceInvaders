@@ -2,12 +2,11 @@ package world;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 import main.Game;
 import uni.Canvas;
-import world.animation.Animation;
-import world.animation.AnimationType;
+import renderer.Animation;
+import renderer.AnimationType;
 
 /**
  * Class to manage the invaders/ enemies of the game

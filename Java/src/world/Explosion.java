@@ -2,8 +2,8 @@ package world;
 
 import uni.Canvas;
 import util.Timer;
-import world.animation.AnimationHandler;
-import world.animation.AnimationType;
+import renderer.AnimationHandler;
+import renderer.AnimationType;
 
 /**
  * Class to represent an explosion, which happens when an enemy dies

@@ -3,8 +3,8 @@ package world;
 import java.util.Random;
 import uni.Canvas;
 import util.Timer;
-import world.animation.Animation;
-import world.animation.AnimationHandler;
+import renderer.Animation;
+import renderer.AnimationHandler;
 
 /**
  * Represents an invader/ enemy of the game
